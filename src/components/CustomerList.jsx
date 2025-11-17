@@ -1,5 +1,5 @@
 import React from "react";
-import "./CustomerList.css";
+import "./styles/CustomerList.css";
 
 export default function CustomerList({ customers, onDelete, onSelect }) {
   return (

@@ -1,24 +1,16 @@
 import React, { useState } from "react";
-import api from "../api/api";
+import { vehicleApi } from "../api/api";
 
 function AddVehicle() {
-  const [vehicle, setVehicle] = useState({
-    company: "",
-    model: "",
-    year: "",
-    price: "",
-  });
+  const [vehicle, setVehicle] = useState({ company: "", model: "", year: "", price: "" });
 
-  const handleChange = (e) => {
-    setVehicle({ ...vehicle, [e.target.name]: e.target.value });
-  };
+  const handleChange = (e) => setVehicle({ ...vehicle, [e.target.name]: e.target.value });
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
-    api.post("/vehicles", vehicle).then(() => {
-      alert("Vehicle added!");
-      window.location.href = "/admin";
-    });
+    await vehicleApi.post("/vehicles", vehicle);
+    alert("Vehicle added!");
+    window.location.href = "/admin";
   };
 
   return (

@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import "./AdminDashboard.css";
+import { customerApi } from "../api/api";
+import '../styles/AdminDashboard.css';
 
 export default function AdminDashboard() {
   const [customers, setCustomers] = useState([]);
   const [selected, setSelected] = useState(null);
   const [form, setForm] = useState({});
-
-  const BASE_URL = "http://localhost:8083/customer-app/customers";
 
   useEffect(() => {
     loadCustomers();
@@ -15,7 +13,7 @@ export default function AdminDashboard() {
 
   const loadCustomers = async () => {
     try {
-      const res = await axios.get(BASE_URL);
+      const res = await customerApi.get("/");
       setCustomers(res.data);
     } catch (err) {
       console.error(err);
@@ -25,7 +23,7 @@ export default function AdminDashboard() {
 
   const deleteCustomer = async (id) => {
     try {
-      await axios.delete(`${BASE_URL}/${id}`);
+      await customerApi.delete(`/${id}`);
       alert("Deleted!");
       loadCustomers();
     } catch (err) {
@@ -44,7 +42,7 @@ export default function AdminDashboard() {
   const updateCustomer = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`${BASE_URL}/${form.id}`, form);
+      await customerApi.put(`/${form.id}`, form);
       alert("Updated!");
       setSelected(null);
       loadCustomers();
@@ -56,7 +54,7 @@ export default function AdminDashboard() {
 
   return (
     <div className="container">
-      <h2>Admin Dashboard</h2>
+      <h2>Admin Dashboard - Customers</h2>
 
       <table className="table">
         <thead>

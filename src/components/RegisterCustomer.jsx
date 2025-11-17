@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import "./RegisterCustomer.css";
+import '../styles/RegisterCustomer.css';
 
 export default function RegisterCustomer() {
   const [form, setForm] = useState({ name: "", email: "", password: "", phone: "" });
