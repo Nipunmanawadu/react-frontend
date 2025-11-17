@@ -17,26 +17,12 @@ function App() {
         <Route path="/" element={<RegisterCustomer />} />
         <Route path="/login" element={<LoginCustomer />} />
         <Route path="/admin" element={<AdminDashboard />} />
-      </Routes>
-    </BrowserRouter>
-  );
-}
-function App() {
-  return (
-    <Router>
-      <nav style={{ padding: 20, background: "#eee" }}>
-        <Link to="/" style={{ marginRight: 20 }}>Customer</Link>
-        <Link to="/admin">Admin</Link>
-      </nav>
-
-      <Routes>
-        <Route path="/" element={<CustomerDashboard />} />
-        <Route path="/admin" element={<AdminDashboard />} />
+        
         <Route path="/admin/add" element={<AddVehicle />} />
         <Route path="/admin/update/:id" element={<UpdateVehicle />} />
       </Routes>
-    </Router>
-      );
+    </BrowserRouter>
+  );
 }
 
 
