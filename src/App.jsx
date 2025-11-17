@@ -1,21 +1,17 @@
-import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import RegisterCustomer from "./components/RegisterCustomer";
-import LoginCustomer from "./components/LoginCustomer";
-import AdminDashboard from "./pages/AdminDashboard";
-import AddVehicle from "./pages/AddVehicle";
-import UpdateVehicle from "./pages/UpdateVehicle";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+import EditCustomer from "./pages/EditCustomer";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<RegisterCustomer />} />
-        <Route path="/login" element={<LoginCustomer />} />
-        <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/admin/add" element={<AddVehicle />} />
-        <Route path="/admin/update/:id" element={<UpdateVehicle />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/edit/:id" element={<EditCustomer />} />
       </Routes>
     </BrowserRouter>
   );
