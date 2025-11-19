@@ -1,12 +1,9 @@
-/* --- src/styles.css (PREMIUM VEHICLE WEBSITE STYLING) --- */
-
-/* Color Palette: Deep Trust & Vibrant Action */
 :root {
-  --primary-color: #004d40;        /* Deep Teal/Navy (Trust/Professional) */
-  --secondary-color: #ff9800;      /* Bright Orange/Gold (Action/Accent) */
-  --success-color: #4caf50;        /* Green Success Button */
-  --danger-color: #d32f2f;         /* Standard Red */
-  
+  --primary-color: #004d40;
+  --secondary-color: #ff9800;
+  --success-color: #4caf50;
+  --danger-color: #d32f2f;
+
   --text-dark: #212529;
   --text-light: #7c8596;
   --background-light: #f5f8fa;
@@ -15,7 +12,6 @@
   --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* General page styling */
 body {
   font-family: 'Segoe UI', Roboto, "Helvetica Neue", Arial, sans-serif;
   background-color: var(--background-light);
@@ -25,14 +21,14 @@ body {
   line-height: 1.5;
 }
 
-/* --- Header & Navigation --- */
-nav {
+/* --- FIXED NAVIGATION (NOW SCOPED TO VEHICLE ONLY) --- */
+.vehicle-navbar {
   background-color: var(--primary-color);
   padding: 18px 50px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-nav a {
+.vehicle-navbar a {
   color: white;
   text-decoration: none;
   margin-right: 30px;
@@ -41,7 +37,7 @@ nav a {
   transition: color 0.3s ease;
 }
 
-nav a:hover {
+.vehicle-navbar a:hover {
   color: var(--secondary-color);
 }
 
@@ -117,7 +113,7 @@ form button[type="submit"]:hover {
   background-color: #5a6268;
 }
 
-/* --- Table Styling (still used for admin section) --- */
+/* --- Table Styling --- */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -210,7 +206,6 @@ button.delete:hover {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Image area */
 .card-image-wrapper {
   width: 100%;
   height: 200px;
@@ -268,7 +263,7 @@ button.delete:hover {
   margin-bottom: 20px;
 }
 
-/* --- PREMIUM RESERVE BUTTON (NEW) --- */
+/* --- PREMIUM RESERVE BUTTON --- */
 .reserve-button {
   width: 100%;
   padding: 14px;
@@ -282,14 +277,9 @@ button.delete:hover {
   letter-spacing: 0.7px;
 
   color: #ffffff;
-
-  /* Premium Orange-Gold Gradient */
   background: linear-gradient(135deg, #ff9800, #ffb74d);
 
-  transition: 
-    background 0.4s ease,
-    transform 0.2s ease,
-    box-shadow 0.3s ease;
+  transition: background 0.4s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .reserve-button:hover {
