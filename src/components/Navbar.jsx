@@ -1,12 +1,32 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "../styles/form.css";
+import { Link, useNavigate } from "react-router-dom";
+import "../styles/global.css";
 
-export default function NavBar({ onLogout }) {
+export default function NavBar({ user, onLogout }) {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    if (onLogout) onLogout();
+    navigate("/");
+  };
+
   return (
     <nav className="nav">
-      <Link to="/dashboard">Dashboard</Link>
-      <button onClick={onLogout}>Logout</button>
+      <div className="nav-left">
+        <Link to="/">Car Management</Link>
+      </div>
+      <div className="nav-right">
+        {user ? (
+          <>
+            <button onClick={handleLogout}>Logout</button>
+          </>
+        ) : (
+          <>
+            <Link to="/">Login</Link>
+            <Link to="/register">Register</Link>
+          </>
+        )}
+      </div>
     </nav>
   );
 }

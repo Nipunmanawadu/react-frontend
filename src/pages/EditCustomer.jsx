@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { customerApi } from "../api/customerApi";
-import NavBar from "../components/Navbar"; // make sure file name is exactly NavBar.jsx
-import "../styles/form.css";
+import NavBar from "../components/Navbar";
+import "../styles/global.css";
 
 export default function EditCustomer() {
   const { id } = useParams();
   const [form, setForm] = useState({});
   const navigate = useNavigate();
 
-  // Load customer inside useEffect
   useEffect(() => {
     const loadCustomer = async () => {
       try {
@@ -20,10 +19,9 @@ export default function EditCustomer() {
       }
     };
     loadCustomer();
-  }, [id]); // only depends on id
+  }, [id]);
 
-  const handleChange = (e) =>
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleUpdate = async (e) => {
     e.preventDefault();
@@ -38,36 +36,13 @@ export default function EditCustomer() {
 
   return (
     <>
-      <NavBar
-        onLogout={() => {
-          localStorage.removeItem("customer");
-          navigate("/");
-        }}
-      />
-      <div className="form-container">
+      <NavBar onLogout={() => { localStorage.removeItem("customer"); navigate("/"); }} />
+      <div className="card">
         <h2>Edit Customer</h2>
         <form onSubmit={handleUpdate}>
-          <input
-            name="name"
-            value={form.name || ""}
-            onChange={handleChange}
-            placeholder="Name"
-            required
-          />
-          <input
-            name="email"
-            value={form.email || ""}
-            onChange={handleChange}
-            placeholder="Email"
-            required
-          />
-          <input
-            name="phone"
-            value={form.phone || ""}
-            onChange={handleChange}
-            placeholder="Phone"
-            required
-          />
+          <input name="name" value={form.name || ""} onChange={handleChange} placeholder="Name" required />
+          <input name="email" value={form.email || ""} onChange={handleChange} placeholder="Email" required />
+          <input name="phone" value={form.phone || ""} onChange={handleChange} placeholder="Phone" required />
           <button type="submit">Update</button>
         </form>
       </div>

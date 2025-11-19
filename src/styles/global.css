@@ -1,0 +1,338 @@
+/* General Body */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #4f8bff, #0abf7a);
+  min-height: 100vh;
+  color: #fff;
+}
+
+/* Navbar */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.75);
+  padding: 10px 40px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  margin-right: 20px;
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  color: #ffe55e;
+}
+
+.nav button {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav button:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* Glassmorphic Card for Login/Register */
+.card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 35px;
+  width: 360px;
+  text-align: center;
+  margin: 50px auto;
+  box-shadow: 0 8px 32px rgba(31,38,135,0.37);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Login/Register Inputs - same width */
+.card input {
+  width: 320px; /* fixed width for all inputs */
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.card input:focus {
+  background: #fff;
+  box-shadow: 0 0 8px rgba(10,135,84,0.7);
+}
+
+/* Login/Register Button - smaller */
+.card button {
+  width: 200px; /* smaller button width */
+  padding: 10px 0;
+  border-radius: 12px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #000;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.card button:hover {
+  background: #fff;
+  color: #000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* Table Container */
+.table-container {
+  width: 90%;
+  margin: 50px auto;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(31,38,135,0.37);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Dashboard Search Bar - smaller size */
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  width: 150px; /* small search input */
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  background: rgba(255,255,255,0.9);
+  color: #000;
+  outline: none;
+}
+
+.search-input:focus {
+  background: #fff;
+  box-shadow: 0 0 6px rgba(10,135,84,0.7);
+}
+
+.search-btn, .reset-btn {
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Search button */
+.search-btn {
+  width: 60px;
+  background: #000;
+  color: #fff;
+}
+
+.search-btn:hover {
+  background: #fff;
+  color: #000;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+/* Reset button */
+.reset-btn {
+  width: 60px;
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.reset-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
+  font-size: 14px;
+  table-layout: fixed;
+}
+
+table th, table td {
+  padding: 10px;
+  text-align: left;
+  vertical-align: middle;
+  word-wrap: break-word;
+}
+
+table thead th {
+  background: #0a8754;
+  font-weight: 600;
+  color: #fff;
+}
+
+table tbody tr {
+  transition: 0.3s;
+}
+
+table tbody tr:hover {
+  background: rgba(10,135,84,0.2);
+  transform: translateX(2px);
+}
+
+/* Edit/Delete buttons small */
+.action-btn {
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  min-width: 50px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+/* Space between Edit and Delete */
+.action-btn.edit {
+  background: #000;
+  color: #fff;
+  margin-right: 6px; /* add spacing here */
+}
+
+.action-btn.edit:hover {
+  background: #fff;
+  color: #000;
+}
+
+.action-btn.delete {
+  background: #000;
+  color: #fff;
+}
+
+.action-btn.delete:hover {
+  background: #fff;
+  color: #ff4b4b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    width: 90%;
+  }
+
+  .table-container {
+    width: 95%;
+  }
+
+  .search-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  table th, table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .action-btn {
+    padding: 3px 6px;
+    font-size: 11px;
+    min-width: 40px;
+  }
+}
+
+
+/* Welcome Popup */
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+
+/* Popup overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Popup box */
+/* Popup box - smaller */
+.popup {
+  background: #fff;
+  color: #000;
+  font-family: 'Times New Roman', Times, serif;
+  padding: 12px 20px;      /* smaller padding */
+  border-radius: 10px;
+  min-width: 200px;        /* smaller width */
+  max-width: 250px;        /* optional max width */
+  text-align: center;
+  font-size: 14px;         /* slightly smaller font */
+  position: fixed;
+  top: 40%;                /* center vertically better */
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  z-index: 9999;
+}
+
+/* Types */
+.popup.warning { background: #fff3cd; color: #856404; }
+.popup.success { background: #d4edda; color: #155724; }
+.popup.error { background: #f8d7da; color: #721c24; }
+
+/* Buttons */
+.popup-btn {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+.popup-btn.confirm {
+  background: #ff4b4b;
+  color: #fff;
+}
+
+.popup-btn.confirm:hover { background: #ff0000; }
+
+.popup-btn.close {
+  background: #000;
+  color: #fff;
+}
+
+.popup-btn.close:hover { background: #555; }
