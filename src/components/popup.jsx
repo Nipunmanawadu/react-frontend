@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/global.css";
+import "../styles/customer.css";
 
 export default function Popup({ message, type = "warning", onClose, onConfirm }) {
   return (

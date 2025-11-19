@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { customerApi } from "../api/customerApi";
 import NavBar from "../components/Navbar";
-import "../styles/global.css";
+import "../styles/customer.css";
 
 export default function EditCustomer() {
   const { id } = useParams();

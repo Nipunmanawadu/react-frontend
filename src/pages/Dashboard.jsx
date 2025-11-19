@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { customerApi } from "../api/customerApi";
 import NavBar from "../components/Navbar";
 import Popup from "../components/popup";
-import "../styles/global.css";
+import "../styles/customer.css";
 
 export default function Dashboard() {
   const [customers, setCustomers] = useState([]);

@@ -1,31 +1,40 @@
+// src/components/VehicleView.jsx
 import React, { useState, useEffect } from "react";
-import { vehicleApi } from "../api/vehicleApi"; // import the axios instance
-import "./styles.css";
+import { vehicleApi } from "../api/vehicleApi";
+import "../styles/vehicle.css";
 
 function VehicleView() {
   const [vehicles, setVehicles] = useState([]);
   const [searchModel, setSearchModel] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const fetchVehicles = async () => {
+  const fetchVehicles = async (model = "") => {
+    setLoading(true);
+    setError(null);
+
     try {
-      const res = await vehicleApi.get("/");
+      // Only add query param if model is non-empty
+      const url = model.trim() !== "" ? `/vehicles?model=${encodeURIComponent(model.trim())}` : "/vehicles";
+      const res = await vehicleApi.get(url);
       setVehicles(res.data);
     } catch (err) {
-      console.error(err);
+      console.error("Error fetching vehicles:", err.response || err);
+      setError("Failed to load vehicles. Please check backend.");
+      setVehicles([]);
+    } finally {
+      setLoading(false);
     }
   };
 
-  const handleSearch = async () => {
-    try {
-      if (searchModel.trim() === "") {
-        fetchVehicles();
-      } else {
-        const res = await vehicleApi.get(`?model=${searchModel}`);
-        setVehicles(res.data);
-      }
-    } catch (err) {
-      console.error(err);
-    }
+  const handleSearch = (e) => {
+    e.preventDefault();
+    fetchVehicles(searchModel);
+  };
+
+  const handleShowAll = () => {
+    setSearchModel("");
+    fetchVehicles(); // No argument = fetch all vehicles
   };
 
   useEffect(() => {
@@ -34,41 +43,56 @@ function VehicleView() {
 
   return (
     <div className="container">
-      <h2>View/Search Vehicles</h2>
-      <form style={{ marginBottom: "20px" }}>
+      <h2>Search Available Vehicles</h2>
+
+      <form onSubmit={handleSearch} style={{ marginBottom: 30 }}>
         <input
           type="text"
-          placeholder="Search by Model"
+          placeholder="Enter model"
           value={searchModel}
           onChange={(e) => setSearchModel(e.target.value)}
         />
-        <button type="button" onClick={handleSearch}>
-          Search
+        <button type="submit">Search</button>
+        <button
+          type="button"
+          onClick={handleShowAll}
+          style={{ backgroundColor: "#6c757d", marginLeft: "10px" }}
+        >
+          Show All
         </button>
       </form>
 
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Company</th>
-            <th>Model</th>
-            <th>Year</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {vehicles.map((v) => (
-            <tr key={v.id}>
-              <td>{v.id}</td>
-              <td>{v.company}</td>
-              <td>{v.model}</td>
-              <td>{v.year}</td>
-              <td>{v.price}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {loading && <p>Loading...</p>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
+
+      <div className="vehicle-grid">
+        {vehicles.length === 0 && !loading && <p>No vehicles found.</p>}
+
+        {vehicles.map((v) => (
+          <div key={v.id} className="vehicle-card">
+            <div className="card-image-wrapper">
+              {v.photoUrl ? (
+                <img
+                  src={v.photoUrl}
+                  alt={`${v.company} ${v.model}`}
+                  className="vehicle-photo-large"
+                />
+              ) : (
+                <div className="placeholder-photo">No Photo</div>
+              )}
+            </div>
+
+            <div className="card-details">
+              <h3>
+                {v.company} {v.model}
+              </h3>
+              <p>Year: {v.year}</p>
+              <p>${parseFloat(v.price).toLocaleString()}</p>
+              <button className="reserve-button">Reserve</button>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { customerApi } from "../api/customerApi";
 import NavBar from "../components/Navbar";
-import "../styles/global.css";
+import "../styles/customer.css";
 
 export default function Register() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", password: "" });
