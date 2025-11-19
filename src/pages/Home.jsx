@@ -1,9 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // <-- import
 import "../styles/Home.css";
+import "../styles/Footer.css";
+import Footer from "../components/Footer";
 import Navbar1 from "../components/Navbar1";
 
 const Home = () => {
-  const heroImage = "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1950&q=80";
+  const heroImage =
+    "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1950&q=80";
+
+  const navigate = useNavigate(); // <-- hook
+
+  const handleBrowseClick = () => {
+    navigate("/view"); // <-- navigate to VehicleView
+  };
 
   return (
     <div className="home-page">
@@ -17,7 +27,9 @@ const Home = () => {
         <div className="hero-overlay">
           <h1>Welcome to RapidCars</h1>
           <p>Find your perfect ride or list your vehicle for sale.</p>
-          <button className="hero-button">Browse Vehicles</button>
+          <button className="hero-button" onClick={handleBrowseClick}>
+            Browse Vehicles
+          </button>
         </div>
       </section>
 
@@ -36,6 +48,9 @@ const Home = () => {
           <p>Buy or sell confidently through our secure platform.</p>
         </div>
       </section>
+
+      {/* Footer Section */}
+      <Footer />
     </div>
   );
 };

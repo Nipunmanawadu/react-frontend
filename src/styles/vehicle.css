@@ -1,11 +1,11 @@
 :root {
-  --primary-color: #004d40;
+  --primary-color:rgba(0,0,0,0.75);
   --secondary-color: #ff9800;
   --success-color: #4caf50;
   --danger-color: #d32f2f;
 
   --text-dark: #212529;
-  --text-light: #7c8596;
+  --text-light: #fdfdfd;
   --background-light: #f5f8fa;
   --card-bg: #ffffff;
   --border-color: #e3e8ee;
@@ -37,9 +37,59 @@ body {
   transition: color 0.3s ease;
 }
 
+/* Navbar container */
+.vehicle-navbar {
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: space-between; /* left links on left, buttons on right */
+  align-items: center;
+  padding: 15px 50px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.vehicle-navbar a {
+  text-decoration: none;
+  margin-right: 30px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  transition: color 0.3s ease;
+  color: var(--text-light);
+}
+
+/* Hover color */
 .vehicle-navbar a:hover {
   color: var(--secondary-color);
 }
+
+/* Buttons specifically */
+.btn-login {
+  padding: 8px 18px;
+  border: 1px solid var(--text-light);
+  border-radius: 5px;
+}
+
+.btn-login:hover {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: #fff;
+}
+
+.btn-signup {
+  padding: 8px 18px;
+  border-radius: 5px;
+  background-color: var(--secondary-color);
+  color: #fff;
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+.btn-signup:hover {
+  background-color: #e68a00; /* slightly darker on hover */
+}
+
 
 /* --- Container Styling --- */
 .container {
