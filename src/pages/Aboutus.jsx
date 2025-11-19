@@ -1,31 +1,112 @@
 import React from "react";
 import "../styles/About.css";
-import Navbar1 from "../components/Navbar1"; // adjust the path if needed
+import Navbar1 from "../components/Navbar1";
 
 const About = () => {
   return (
-    <div>
-      <Navbar1 />  {/* <-- Add this line to use Navbar1 */}
-      <div className="about-page">
-        <h1>About Carpola</h1>
+    <div className="about-page">
+      <Navbar1 />
+
+      {/* Hero Section */}
+      <section className="about-hero">
+        <div className="about-hero-overlay">
+          <h1>About Carpola</h1>
+          <p>
+            Rapid Cars is Sri Lanka's premier online marketplace for buying and
+            selling vehicles. Simple, safe, and transparent vehicle trading
+            experience.
+          </p>
+        </div>
+      </section>
+
+      {/* Intro Section */}
+      <div className="about-intro">
         <p>
-          Carpola is Sri Lanka’s premier online marketplace for buying and selling vehicles. Whether you’re looking for your next car or want to list your own, Carpola makes the process simple, safe, and transparent.
+          Whether you're looking for your next car or want to list your own,
+          Rapid Cars makes the process seamless, trustworthy, and efficient.
         </p>
-
-        <section className="mission">
-          <h2>Our Mission</h2>
-          <p>
-            To connect buyers and sellers across Sri Lanka, offering a seamless experience backed by trust and reliability.
-          </p>
-        </section>
-
-        <section className="team">
-          <h2>Meet the Team</h2>
-          <p>
-            We are a passionate group of automotive enthusiasts and tech professionals dedicated to making vehicle trading accessible for everyone.
-          </p>
-        </section>
       </div>
+
+      {/* Mission Section */}
+      <section className="about-mission">
+        <h2>Our Mission</h2>
+        <div className="mission-cards">
+          <div className="mission-card">
+            <img
+              src="https://img.icons8.com/ios-filled/50/000000/handshake.png"
+              alt="Trust"
+            />
+            <h3>Trusted Sellers</h3>
+            <p>All vehicles are verified for authenticity and quality.</p>
+          </div>
+          <div className="mission-card">
+            <img
+              src="https://img.icons8.com/ios-filled/50/000000/lock.png"
+              alt="Security"
+            />
+            <h3>Secure Transactions</h3>
+            <p>Buy and sell vehicles safely with verified users.</p>
+          </div>
+          <div className="mission-card">
+            <img
+              src="https://img.icons8.com/ios-filled/50/000000/customer-support.png"
+              alt="Support"
+            />
+            <h3>24/7 Support</h3>
+            <p>We provide help whenever you need it.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="about-team">
+        <h2>Meet the Team</h2>
+        <div className="team-grid">
+          <div className="team-card">
+            <img
+              src="https://randomuser.me/api/portraits/men/32.jpg"
+              alt="John Doe"
+            />
+            <h3>John Doe</h3>
+            <p>CEO & Founder</p>
+          </div>
+          <div className="team-card">
+            <img
+              src="https://randomuser.me/api/portraits/women/44.jpg"
+              alt="Jane Smith"
+            />
+            <h3>Jane Smith</h3>
+            <p>CTO</p>
+          </div>
+          <div className="team-card">
+            <img
+              src="https://randomuser.me/api/portraits/men/76.jpg"
+              alt="Alex Brown"
+            />
+            <h3>Alex Brown</h3>
+            <p>Marketing Head</p>
+          </div>
+          <div className="team-card">
+            <img
+              src="https://randomuser.me/api/portraits/women/68.jpg"
+              alt="Sara Lee"
+            />
+            <h3>Sara Lee</h3>
+            <p>Product Manager</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="about-footer">
+        <p>&copy; 2025 Rapid Cars. All rights reserved.</p>
+        <div className="footer-links">
+          <a href="/">Home</a>
+          <a href="/view">Browse Vehicles</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </footer>
     </div>
   );
 };

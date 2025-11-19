@@ -1,36 +1,159 @@
 .about-page {
-  padding: 60px 20px;
-  max-width: 800px;
-  margin: 0 auto;
-  color: #212529;
-  background-color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
 }
 
-.about-page h1 {
-  font-size: 2.5rem;
-  color: #004d40;
+/* Hero Section */
+.about-hero {
+  position: relative;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+      rgba(0,0,0,0.6), 
+      rgba(0,0,0,0.6)
+    ),
+    url('C:\Users\User\Documents\Nibm\HND\EAD - 2  Coursework\New folder\customer-frontend\src\images\powerful-headlights-particle-view-modern-luxury-cars-parked-indoors-daytime.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.about-hero-overlay {
   text-align: center;
-  margin-bottom: 30px;
+  color: #fff;
+  padding: 50px;
+  border-radius: 12px;
+  max-width: 700px;
 }
 
-.about-page p {
-  font-size: 1.1rem;
+.about-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+}
+
+.about-hero p {
+  font-size: 1.25rem;
+  animation: fadeInUp 1.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Intro */
+.about-intro {
+  max-width: 700px;
+  margin: 40px auto;
+  text-align: center;
+  font-size: 1.2rem;
   line-height: 1.6;
-  margin-bottom: 30px;
-  color: #4a4a4a;
+  color: #555;
 }
 
-.mission, .team {
-  margin-top: 40px;
+/* Mission Section */
+.about-mission {
+  padding: 60px 20px;
+  text-align: center;
 }
 
-.mission h2, .team h2 {
+.mission-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.mission-card {
+  background: #f5f8fa;
+  padding: 25px;
+  border-radius: 12px;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.mission-card img {
+  width: 50px;
+  margin-bottom: 15px;
+}
+
+.mission-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Team Section */
+.about-team {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.team-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.team-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  width: 200px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+/* Footer */
+.about-footer {
+  background: #004d40;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 0.95rem;
+}
+
+.about-footer .footer-links {
+  margin-top: 10px;
+}
+
+.about-footer a {
   color: #ff9800;
-  font-size: 1.8rem;
-  margin-bottom: 10px;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-.mission p, .team p {
-  font-size: 1rem;
-  color: #5a5a5a;
+.about-footer a:hover {
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mission-cards, .team-grid {
+    flex-direction: column;
+    align-items: center;
+  }
 }
