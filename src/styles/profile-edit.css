@@ -1,0 +1,96 @@
+/* Container */
+.pe-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Title */
+.pe-title {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* Form */
+.pre-form {
+  gap: 45px;
+}
+
+/* Labels */
+.pe-form label {
+  font-weight: 500;
+  color: #555;
+  font-size: 14px;
+}
+
+
+/* Update button */
+.pe-btn-update {
+  padding: 10px ;
+  margin: 10px auto 0;
+  background: #4a90e2;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  border: black;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 50%;
+  
+  
+}
+
+.pe-btn-update:hover {
+  background: #357abd;
+}
+
+/* Profile card view */
+.pe-card {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Profile info */
+.pe-card p {
+  font-size: 14px;
+  color: #333;
+  margin: 0;
+}
+
+/* Edit button in profile view */
+.pe-btn-edit {
+  margin-top: 12px;
+  padding: 6px 0;
+  background: #4a90e2;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pe-btn-edit:hover {
+  background: #357abd;
+}
+
+/* Loading text */
+.pe-loading {
+  text-align: center;
+  font-size: 16px;
+  color: #777;
+}
