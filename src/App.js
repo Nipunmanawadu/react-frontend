@@ -5,6 +5,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import EditCustomer from "./pages/EditCustomer";
+import Profile from "./pages/Profile";
+import EditProfile from "./pages/EditCustomer";
 
 import VehicleManagement from "./pages/VehicleManagement";
 import VehicleView from "./pages/VehicleView";
@@ -13,6 +15,7 @@ import "./styles/vehicle.css";
 import "./styles/customer.css";
 import Home from "./pages/Home";
 import About from "./pages/Aboutus";
+
 
 function App() {
   return (
@@ -27,6 +30,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/edit/:id" element={<EditCustomer />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/edit-profile/:id" element={<EditProfile />} />
 
         {/* Vehicle Management System */}
         <Route path="/vehicles" element={<VehicleManagement />} />
