@@ -65,30 +65,18 @@ body {
 }
 
 /* Buttons specifically */
-.btn-login {
+.btn-signup {
   padding: 8px 18px;
   border: 1px solid var(--text-light);
   border-radius: 5px;
 }
 
-.btn-login:hover {
-  background-color: var(--secondary-color);
+.btn-signup:hover {
+  background-color: rgb(17, 133, 165);
   border-color: var(--secondary-color);
   color: #fff;
 }
 
-.btn-signup {
-  padding: 8px 18px;
-  border-radius: 5px;
-  background-color: var(--secondary-color);
-  color: #fff;
-  margin-left: 10px;
-  font-weight: 600;
-}
-
-.btn-signup:hover {
-  background-color: #e68a00; /* slightly darker on hover */
-}
 
 
 /* --- Container Styling --- */

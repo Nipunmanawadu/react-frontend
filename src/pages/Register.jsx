@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { customerApi } from "../api/customerApi";
-import NavBar from "../components/Navbar";
 import "../styles/customer.css";
 
 export default function Register() {
@@ -24,7 +23,7 @@ export default function Register() {
 
   return (
     <>
-      <NavBar user={user} />
+   
       <div className="card">
         <h2>Register</h2>
         <form onSubmit={handleRegister}>
@@ -63,7 +62,7 @@ export default function Register() {
           <button type="submit">Register</button>
         </form>
         <p style={{ marginTop: "15px" }}>
-          Already have an account? <Link to="/">Login</Link>
+          Already have an account? <Link to="/login">Login</Link>
         </p>
       </div>
     </>

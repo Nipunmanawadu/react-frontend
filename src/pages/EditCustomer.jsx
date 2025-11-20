@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { customerApi } from "../api/customerApi";
-import NavBar from "../components/Navbar";
 import "../styles/customer.css";
 
 export default function EditCustomer() {
@@ -36,7 +35,7 @@ export default function EditCustomer() {
 
   return (
     <>
-      <NavBar onLogout={() => { localStorage.removeItem("customer"); navigate("/"); }} />
+      
       <div className="card">
         <h2>Edit Customer</h2>
         <form onSubmit={handleUpdate}>

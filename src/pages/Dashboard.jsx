@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { customerApi } from "../api/customerApi";
-import NavBar from "../components/Navbar";
+
 import Popup from "../components/popup";
 import "../styles/customer.css";
 
@@ -85,7 +85,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <NavBar user={user} onLogout={logout} />
+    
 
       <div className="table-container">
         <h2>Customer Dashboard</h2>

@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles/About.css";
 import Navbar1 from "../components/Navbar1";
+import Footer from "../components/Footer";
+import "../styles/Footer.css";
 
 const About = () => {
   return (
@@ -10,7 +12,7 @@ const About = () => {
       {/* Hero Section */}
       <section className="about-hero">
         <div className="about-hero-overlay">
-          <h1>About Carpola</h1>
+          <h1>About RapidCars</h1>
           <p>
             Rapid Cars is Sri Lanka's premier online marketplace for buying and
             selling vehicles. Simple, safe, and transparent vehicle trading
@@ -96,17 +98,7 @@ const About = () => {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="about-footer">
-        <p>&copy; 2025 Rapid Cars. All rights reserved.</p>
-        <div className="footer-links">
-          <a href="/">Home</a>
-          <a href="/view">Browse Vehicles</a>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
-        </div>
-      </footer>
+       <Footer />
     </div>
   );
 };

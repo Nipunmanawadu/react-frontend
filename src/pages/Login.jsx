@@ -1,32 +1,45 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { customerApi } from "../api/customerApi";
-import NavBar from "../components/Navbar";
 import "../styles/customer.css";
 
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
-  const [showPopup, setShowPopup] = useState(false); // popup state
+  const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem("customer"));
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
+    // Check for default Admin credentials first
+    if (form.email === "admin" && form.password === "123") {
+      localStorage.setItem(
+        "customer",
+        JSON.stringify({ role: "admin", name: "Admin" })
+      );
+
+      setShowPopup(true);
+      setTimeout(() => {
+        setShowPopup(false);
+        navigate("/dashboard"); // Redirect to Admin Dashboard
+      }, 1500);
+      return;
+    }
+
+    // Regular customer login
     try {
       const res = await customerApi.post("/login", form);
       if (res.data) {
         localStorage.setItem("customer", JSON.stringify(res.data));
 
-        // Show popup
         setShowPopup(true);
-
-        // Hide popup after 2 seconds and navigate
         setTimeout(() => {
           setShowPopup(false);
-          navigate("/dashboard");
-        }, 2000);
+          navigate("/view"); // Regular user dashboard
+        }, 1500);
       } else {
         alert("Invalid credentials");
       }
@@ -37,14 +50,13 @@ export default function Login() {
 
   return (
     <>
-      <NavBar user={user} />
       <div className="card">
         <h2>Login</h2>
         <form onSubmit={handleLogin}>
           <input
-            type="email"
+            type="text"
             name="email"
-            placeholder="Email"
+            placeholder="Email or Admin"
             value={form.email}
             onChange={handleChange}
             required
