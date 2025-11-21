@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getCustomerById } from "../api/customerApi";
-import Navbar1 from "../components/Navbar1";  // ✅ Navbar1
-import Footer from "../components/Footer";    // ✅ Footer
-import "../styles/profile-edit.css";
+import Navbar1 from "../components/Navbar1";
+import Footer from "../components/Footer";
+import "../styles/Profile.css"; // ✅ updated import
 
 export default function Profile() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
-
   const loggedUserId = localStorage.getItem("customerId");
- 
 
   useEffect(() => {
     if (!loggedUserId) {
@@ -34,10 +32,7 @@ export default function Profile() {
 
   return (
     <>
-      {/* Navbar */}
       <Navbar1 />
-
-      {/* Hero background */}
       <div className="hero-bg">
         <div className="pe-container">
           <h2 className="pe-title">My Profile</h2>
@@ -55,8 +50,6 @@ export default function Profile() {
           </div>
         </div>
       </div>
-
-      {/* Footer */}
       <Footer />
     </>
   );

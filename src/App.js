@@ -1,48 +1,49 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
+// Pages
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
-import EditCustomer from "./pages/EditCustomer";
+import EditCustomer from "./pages/EditCustomer";  // Admin edit
 import Profile from "./pages/Profile";
-import EditProfile from "./pages/EditCustomer";
+import EditProfile from "./pages/EditProfile";    // Customer edit
 
 import VehicleManagement from "./pages/VehicleManagement";
 import VehicleView from "./pages/VehicleView";
-
-import "./styles/vehicle.css";
-import "./styles/customer.css";
 import Home from "./pages/Home";
 import About from "./pages/Aboutus";
 
+// Styles
+import "./styles/vehicle.css";
+import "./styles/customer.css";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Set VehicleView as default page */}
+        {/* Home */}
         <Route path="/" element={<Home />} />
-        <Route path="/" element={<VehicleView />} />
+        <Route path="/about" element={<About />} />
 
-        {/* User Management System */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/edit/:id" element={<EditCustomer />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/edit-profile/:id" element={<EditProfile />} />
-
-        {/* Vehicle Management System */}
+        {/* Vehicle Management */}
         <Route path="/vehicles" element={<VehicleManagement />} />
         <Route path="/view" element={<VehicleView />} />
 
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        
+        {/* User Management */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+
+        {/* Admin edit customer */}
+        <Route path="/edit/:id" element={<EditCustomer />} />
+
+        {/* Customer profile & edit */}
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/edit-profile/:id" element={<EditProfile />} />
 
         {/* Optional redirect */}
-        <Route path="/home" element={<Navigate to="/dashboard" />} />
+        <Route path="/home" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
   );

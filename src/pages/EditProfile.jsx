@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react"; 
 import { customerApi } from "../api/customerApi";
 import { useParams, useNavigate } from "react-router-dom";
-import "../styles/profile-edit.css";
+import Navbar1 from "../components/Navbar1"; // ✅ Navbar
+import Footer from "../components/Footer";   // ✅ Footer
+import "../styles/EditProfile.css";
 
 export default function EditUserProfile() {
   const { id } = useParams();
@@ -37,49 +39,56 @@ export default function EditUserProfile() {
   };
 
   return (
-    <div className="pe-container">
-      <h2 className="pe-title">Edit Profile</h2>
-      <form className="pre-form" onSubmit={handleSubmit}>
-        <label>Name</label>
-        <input 
-          type="text"
-          name="name"
-          className="pre-input"
-          value={form.name}
-          onChange={handleChange}
-          required
-        />
+    <>
+      {/* Navbar */}
+      <Navbar1 />
 
-        <label>Email</label>
-        <input
-          type="email"
-          name="email"
-          className="pre-input"
-          value={form.email}
-          onChange={handleChange}
-          required
-        />
+      {/* Hero + Glass Card */}
+      <div className="ec-container">
+        <div className="ec-card">
+          <h2>Edit Profile</h2>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              value={form.name}
+              onChange={handleChange}
+              className="ec-input"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={form.email}
+              onChange={handleChange}
+              className="ec-input"
+              required
+            />
+            <input
+              type="text"
+              name="phone"
+              placeholder="Phone"
+              value={form.phone}
+              onChange={handleChange}
+              className="ec-input"
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password (leave blank to keep current)"
+              value={form.password}
+              onChange={handleChange}
+              className="ec-input"
+            />
+            <button type="submit" className="ec-btn">Update Profile</button>
+          </form>
+        </div>
+      </div>
 
-        <label>Phone</label>
-        <input
-          type="text"
-          name="phone"
-          className="pre-input"
-          value={form.phone}
-          onChange={handleChange}
-        />
-
-        <label>Password (leave blank to keep current)</label>
-        <input
-          type="password"
-          name="password"
-          className="pre-input"
-          value={form.password}
-          onChange={handleChange}
-        />
-
-        <button type="submit" className="pe-btn-update">Update Profile</button>
-      </form>
-    </div>
+      {/* Footer */}
+      <Footer />
+    </>
   );
 }
