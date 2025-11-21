@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { customerApi } from "../api/customerApi";
 import Navbar1 from "../components/Navbar1";     // ✅ Navbar
 import Footer from "../components/Footer";       // ✅ Footer
-import "../styles/editcustomer.css";             // Separate CSS
+import "../styles/EditCustomer.css";             // Separate CSS
 
 export default function EditCustomer() {
   const { id } = useParams();

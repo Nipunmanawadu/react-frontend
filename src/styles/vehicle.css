@@ -81,8 +81,8 @@ body {
 
 /* --- Container Styling --- */
 .container {
-  max-width: 1200px;
-  margin: 50px auto;
+  max-width: 1400px;
+  margin: 30px auto;
   padding: 35px;
   background-color: var(--card-bg);
   border-radius: 10px;
@@ -278,6 +278,8 @@ button.delete:hover {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  text-align: center;      
+  align-items: center;  
 }
 
 .card-title {
@@ -303,7 +305,7 @@ button.delete:hover {
 
 /* --- PREMIUM RESERVE BUTTON --- */
 .reserve-button {
-  width: 100%;
+  width: 80%;
   padding: 14px;
   margin-top: auto;
   border: none;
