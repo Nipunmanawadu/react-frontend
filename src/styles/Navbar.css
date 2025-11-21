@@ -1,0 +1,124 @@
+/* Navbar.css */
+
+/* General Navbar */
+.vehicle-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  height: 70px;
+  background: rgba(30, 30, 30, 0.85); /* Dark semi-transparent */
+  backdrop-filter: blur(10px); /* Glass effect */
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  transition: all 0.3s ease;
+}
+
+/* Left links */
+.navbar-left a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-right: 1.8rem;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-left a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #0abf7a; /* accent color */
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+
+.navbar-left a:hover {
+  color: #0abf7a;
+}
+
+.navbar-left a:hover::after {
+  width: 100%;
+}
+
+/* Right section */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Sign Up button */
+.btn-signup {
+  padding: 7px 18px;
+  border-radius: 25px;
+  border: 2px solid #0abf7a;
+  background: transparent;
+  color: #0abf7a;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-signup:hover {
+  background: #0abf7a;
+  color: #1e1e1e;
+  transform: scale(1.05);
+}
+
+/* Customer name display */
+.customer-name {
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.customer-name:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+  color: #0abf7a;
+}
+
+/* Logout button */
+.btn-logout {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: none;
+  background: #ff4d4d;
+  color: #ffffff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+  background: #ff1a1a;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .vehicle-navbar {
+    flex-direction: column;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .navbar-left {
+    margin-bottom: 0.5rem;
+  }
+
+  .navbar-left a {
+    margin-right: 1rem;
+  }
+}
