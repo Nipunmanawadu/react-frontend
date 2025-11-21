@@ -1,5 +1,6 @@
 // src/components/VehicleView.jsx
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { vehicleApi } from "../api/vehicleApi";
 import "../styles/vehicle.css";
 import "../styles/Footer.css";
@@ -12,6 +13,8 @@ function VehicleView() {
   const [searchModel, setSearchModel] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+    const navigate = useNavigate(); // <-- Initialize navigate
+  const customerName = localStorage.getItem("customerName");
 
   const fetchVehicles = async (model = "") => {
     setLoading(true);
@@ -42,6 +45,16 @@ function VehicleView() {
   const handleShowAll = () => {
     setSearchModel("");
     fetchVehicles();
+  };
+
+  const handleReserveClick = () => {
+    if (!customerName) {
+      // Not logged in → navigate to login
+      navigate("/login");
+    } else {
+      // Logged in → navigate to reservation page (optional)
+      navigate("/reserve"); // replace with your reservation route
+    }
   };
 
   useEffect(() => {
@@ -99,7 +112,12 @@ function VehicleView() {
                 <p>Year: {v.year}</p>
                 <p>${parseFloat(v.price).toLocaleString()}</p>
 
-                <button className="reserve-button">Reserve</button>
+                <button
+                  className="reserve-button"
+                  onClick={handleReserveClick} // <-- Add this
+                >
+                  Reserve
+                </button>
               </div>
             </div>
           ))}

@@ -64,34 +64,35 @@ function VehicleManagement() {
     <>
       <Navbar1 />
 
-      <div className="container">
-        <h2>{editing ? "Update Vehicle" : "Add Vehicle"}</h2>
+      <div className="vm-container">
+        <h2 className="vm-title">{editing ? "Update Vehicle" : "Add Vehicle"}</h2>
 
-        <form onSubmit={handleSubmit}>
-          <input type="text" name="company" placeholder="Company" value={form.company} onChange={handleChange} required />
-          <input type="text" name="model" placeholder="Model" value={form.model} onChange={handleChange} required />
-          <input type="number" name="year" placeholder="Year" value={form.year} onChange={handleChange} required />
-          <input type="number" step="0.01" name="price" placeholder="Price" value={form.price} onChange={handleChange} required />
-          <input type="url" name="photoUrl" placeholder="Photo URL" value={form.photoUrl} onChange={handleChange} />
+        <form className="vm-form" onSubmit={handleSubmit}>
+          <input className="vm-input" type="text" name="company" placeholder="Company" value={form.company} onChange={handleChange} required />
+          <input className="vm-input" type="text" name="model" placeholder="Model" value={form.model} onChange={handleChange} required />
+          <input className="vm-input" type="number" name="year" placeholder="Year" value={form.year} onChange={handleChange} required />
+          <input className="vm-input" type="number" step="0.01" name="price" placeholder="Price" value={form.price} onChange={handleChange} required />
+          <input className="vm-input" type="url" name="photoUrl" placeholder="Photo URL" value={form.photoUrl} onChange={handleChange} />
 
-          <button type="submit">{editing ? "Update" : "Add"}</button>
+          <button className="vm-submit" type="submit">{editing ? "Update" : "Add"}</button>
 
           {editing && (
             <button
+              className="vm-cancel"
               type="button"
               onClick={() => {
                 setEditing(false);
                 setForm({ id: "", company: "", model: "", year: "", price: "", photoUrl: "" });
-              }}style={{ backgroundColor: "#6c757d", marginLeft: "10px" }}
+              }}
             >
               Cancel
             </button>
           )}
         </form>
 
-        <h2>Vehicle List</h2>
+        <h2 className="vm-title">Vehicle List</h2>
 
-        <table>
+        <table className="vm-table">
           <thead>
             <tr>
               <th>ID</th>
@@ -115,26 +116,25 @@ function VehicleManagement() {
                 <td>
                   {v.photoUrl ? (
                     <img
+                      className="vm-photo"
                       src={v.photoUrl}
                       alt={`${v.company} ${v.model}`}
-                      className="vehicle-photo-small"
                     />
                   ) : "N/A"}
                 </td>
 
                 <td>
-                  <div className="action-buttons">
-                  <button className="edit" onClick={() => handleEdit(v)}>Edit</button>
-                  <button className="delete" onClick={() => handleDelete(v.id)}>Delete</button>
+                  <div className="vm-actions">
+                    <button className="vm-edit" onClick={() => handleEdit(v)}>Edit</button>
+                    <button className="vm-delete" onClick={() => handleDelete(v.id)}>Delete</button>
                   </div>
                 </td>
-
               </tr>
             ))}
           </tbody>
-
         </table>
       </div>
+
       <Footer />
     </>
   );

@@ -11,10 +11,6 @@ const Navbar1 = () => {
     navigate("/login");
   };
 
-  const handleProfileClick = () => {
-    navigate("/profile");
-  };
-
   return (
     <nav className="vehicle-navbar">
       <div className="navbar-left">
@@ -24,12 +20,21 @@ const Navbar1 = () => {
 
       <div className="navbar-right">
         {!customerName ? (
-          <Link to="/register" className="btn-signup">
-            Sign Up
-          </Link>
+          <>
+            <Link to="/register" className="btn-signup">
+              Sign Up
+            </Link>
+            <Link to="/login" className="btn-admin">
+              Admin
+            </Link>
+          </>
         ) : (
           <>
-            <span className="customer-name" onClick={handleProfileClick} style={{ cursor: "pointer" }}>
+            <span
+              className="customer-name"
+              onClick={() => navigate("/profile")}
+              style={{ cursor: "pointer" }}
+            >
               {customerName}
             </span>
             <button className="btn-logout" onClick={handleLogout}>
