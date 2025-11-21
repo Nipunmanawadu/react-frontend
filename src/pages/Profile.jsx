@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getCustomerById } from "../api/customerApi";
+import Navbar1 from "../components/Navbar1";  // ✅ Navbar1
+import Footer from "../components/Footer";    // ✅ Footer
 import "../styles/profile-edit.css";
-import "../styles/Navbar.css"; // Make sure file name matches
 
 export default function Profile() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   const loggedUserId = localStorage.getItem("customerId");
-  const customerName = localStorage.getItem("customerName");
+ 
 
   useEffect(() => {
     if (!loggedUserId) {
@@ -29,40 +30,12 @@ export default function Profile() {
     fetchUser();
   }, [loggedUserId, navigate]);
 
-  const handleLogout = () => {
-    localStorage.clear();
-    navigate("/login");
-  };
-
-  const handleProfileClick = () => {
-    navigate("/profile");
-  };
-
   if (!user) return <p className="pe-loading">Loading profile...</p>;
 
   return (
     <>
       {/* Navbar */}
-      <nav className="vehicle-navbar">
-        <div className="navbar-left">
-          <a href="/">Home</a>
-          <a href="/about">About Us</a>
-        </div>
-        <div className="navbar-right">
-          {!customerName ? (
-            <a href="/register" className="btn-signup">Sign Up</a>
-          ) : (
-            <>
-              <span className="customer-name" onClick={handleProfileClick}>
-                {customerName}
-              </span>
-              <button className="btn-logout" onClick={handleLogout}>
-                Logout
-              </button>
-            </>
-          )}
-        </div>
-      </nav>
+      <Navbar1 />
 
       {/* Hero background */}
       <div className="hero-bg">
@@ -82,6 +55,9 @@ export default function Profile() {
           </div>
         </div>
       </div>
+
+      {/* Footer */}
+      <Footer />
     </>
   );
 }

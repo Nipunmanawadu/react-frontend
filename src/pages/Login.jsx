@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { customerApi } from "../api/customerApi";
-import "../styles/customer.css";
+import Navbar1 from "../components/Navbar1";   // ✅ Navbar
+import Footer from "../components/Footer";     // ✅ Footer
+import "../styles/login.css";
 
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -14,88 +16,91 @@ export default function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    // ----------------------------
-    // ✅ 1. ADMIN LOGIN CHECK
-    // ----------------------------
+    // Admin Login
     if (form.email === "admin" && form.password === "123") {
       localStorage.setItem("customerName", "Admin");
       localStorage.setItem("customerEmail", "admin");
-      localStorage.setItem("customerRole", "admin");
 
       setShowPopup(true);
       setTimeout(() => {
         setShowPopup(false);
-        navigate("/dashboard"); // Admin dashboard
+        navigate("/dashboard");
       }, 1500);
       return;
     }
 
-    // ----------------------------
-    // ✅ 2. CUSTOMER LOGIN
-    // ----------------------------
+    // Customer Login
     try {
       const res = await customerApi.post("/login", form);
 
       if (res.data) {
-        // Save values individually
         localStorage.setItem("customerId", res.data.id);
         localStorage.setItem("customerName", res.data.name);
         localStorage.setItem("customerEmail", res.data.email);
         localStorage.setItem("customerPhone", res.data.phone);
 
         setShowPopup(true);
-
         setTimeout(() => {
           setShowPopup(false);
-          navigate("/view"); // Redirect to customer profile/dashboard
+          navigate("/view");
         }, 1500);
       } else {
         alert("Invalid credentials");
       }
     } catch (err) {
-      console.log(err);
       alert("Login failed");
     }
   };
 
   return (
     <>
-      <div className="card">
-        <h2>Login</h2>
+      {/* Navbar */}
+      <Navbar1 />
 
-        <form onSubmit={handleLogin}>
-          <input
-            type="text"
-            name="email"
-            placeholder="Email or Admin"
-            value={form.email}
-            onChange={handleChange}
-            required
-          />
+      {/* Login Container */}
+      <div className="lg-container">
+        <div className="lg-card">
+          <h2>Login</h2>
 
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={form.password}
-            onChange={handleChange}
-            required
-          />
+          <form onSubmit={handleLogin}>
+            <input
+              type="text"
+              name="email"
+              placeholder="Email or Admin"
+              value={form.email}
+              onChange={handleChange}
+              required
+              className="lg-input"
+            />
 
-          <button type="submit">Login</button>
-        </form>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={form.password}
+              onChange={handleChange}
+              required
+              className="lg-input"
+            />
 
-        <p style={{ marginTop: "15px" }}>
-          Don't have an account? <Link to="/register">Sign Up</Link>
-        </p>
+            <button type="submit" className="lg-btn">Login</button>
+          </form>
+
+          <p className="lg-bottom-text">
+            Don't have an account? <Link to="/register">Sign Up</Link>
+          </p>
+        </div>
+
+        {/* Popup message */}
+        {showPopup && (
+          <div className="lg-popup">
+            Welcome! Login Successful.
+          </div>
+        )}
       </div>
 
-      {/* Popup */}
-      {showPopup && (
-        <div className="popup">
-          <p>Welcome! You have successfully logged in.</p>
-        </div>
-      )}
+      {/* Footer */}
+      <Footer />
     </>
   );
 }
