@@ -12,7 +12,7 @@ export default function Dashboard() {
   const [deleteId, setDeleteId] = useState(null);
   const [popupMessage, setPopupMessage] = useState(null);
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem("customer"));
+  
 
   const loadCustomers = async () => {
     try {
@@ -79,9 +79,7 @@ export default function Dashboard() {
     }
   };
 
-  const logout = () => {
-    localStorage.removeItem("customer");
-  };
+
 
   return (
     <>
