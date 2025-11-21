@@ -165,6 +165,7 @@ table th, table td {
   border-bottom: 1px solid var(--border-color);
   text-align: left;
   font-size: 0.95rem;
+  color: var(--text-dark); 
 }
 
 table th {
@@ -202,18 +203,20 @@ table button {
 }
 
 button.edit {
-  background-color: var(--secondary-color);
+  background-color: rgb(136, 237, 136);
   color: var(--text-dark);
 }
 
 button.edit:hover {
-  background-color: #e68900;
+  background-color: #11743c;
   transform: translateY(-1px);
+ 
 }
 
 button.delete {
   background-color: var(--danger-color);
   color: white;
+  
 }
 
 button.delete:hover {
@@ -221,6 +224,10 @@ button.delete:hover {
   transform: translateY(-1px);
 }
 
+.action-buttons {
+  display: flex;
+  gap: 10px; 
+}
 /* --- GRID LAYOUT FOR VehicleView --- */
 .vehicle-grid {
   display: grid;

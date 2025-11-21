@@ -82,7 +82,7 @@ function VehicleManagement() {
               onClick={() => {
                 setEditing(false);
                 setForm({ id: "", company: "", model: "", year: "", price: "", photoUrl: "" });
-              }}
+              }}style={{ backgroundColor: "#6c757d", marginLeft: "10px" }}
             >
               Cancel
             </button>
@@ -123,8 +123,10 @@ function VehicleManagement() {
                 </td>
 
                 <td>
+                  <div className="action-buttons">
                   <button className="edit" onClick={() => handleEdit(v)}>Edit</button>
                   <button className="delete" onClick={() => handleDelete(v.id)}>Delete</button>
+                  </div>
                 </td>
 
               </tr>
