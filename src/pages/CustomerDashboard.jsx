@@ -2,23 +2,24 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { customerApi } from "../api/customerApi";
 
+import Navbar1 from "../components/Navbar1";
+import Footer from "../components/Footer";
 import Popup from "../components/popup";
-import "../styles/customer.css";
+import "../styles/CustomerDashboard.css";
 
 export default function Dashboard() {
   const [customers, setCustomers] = useState([]);
   const [searchId, setSearchId] = useState("");
-  const [searchName, setSearchName] = useState("");   // NEW
+  const [searchName, setSearchName] = useState("");
   const [deleteId, setDeleteId] = useState(null);
   const [popupMessage, setPopupMessage] = useState(null);
   const navigate = useNavigate();
-  
 
   const loadCustomers = async () => {
     try {
       const res = await customerApi.get("");
       setCustomers(res.data);
-    } catch (err) {
+    } catch {
       alert("Failed to load customers");
     }
   };
@@ -27,8 +28,7 @@ export default function Dashboard() {
     loadCustomers();
   }, []);
 
-  // DELETE
-  const deleteCustomer = async (id) => {
+  const deleteCustomer = (id) => {
     setDeleteId(id);
     setPopupMessage("Are you sure you want to delete this customer?");
   };
@@ -39,187 +39,131 @@ export default function Dashboard() {
       setDeleteId(null);
       setPopupMessage("Customer deleted successfully!");
       loadCustomers();
-
-      setTimeout(() => {
-        setPopupMessage(null);
-      }, 10000);
+      setTimeout(() => setPopupMessage(null), 10000);
     }
   };
 
   useEffect(() => {
     if (popupMessage && !deleteId) {
-      const timer = setTimeout(() => {
-        setPopupMessage(null);
-      }, 10000);
+      const timer = setTimeout(() => setPopupMessage(null), 10000);
       return () => clearTimeout(timer);
     }
   }, [popupMessage, deleteId]);
 
-  // SEARCH BY ID
   const searchCustomerById = async () => {
     if (!searchId) return loadCustomers();
     try {
       const res = await customerApi.get(`/${searchId}`);
       setCustomers([res.data]);
-    } catch (err) {
+    } catch {
       alert("Customer not found");
       setCustomers([]);
     }
   };
 
-  // ⭐ NEW: SEARCH BY NAME
   const searchCustomerByName = async () => {
     if (!searchName.trim()) return loadCustomers();
     try {
       const res = await customerApi.get(`/search?name=${searchName}`);
       setCustomers(res.data);
-    } catch (err) {
+    } catch {
       alert("No matching customers found");
       setCustomers([]);
     }
   };
 
-
-
   return (
     <>
-    
+      <Navbar1 />
 
-      <div className="table-container">
-        <h2>Customer Dashboard</h2>
+      <div className="dashboard-bg">
+        <div className="dashboard-card">
+          <h2>Customer Dashboard</h2>
 
-        {/* ------------------ Search By ID ------------------ */}
-        <div style={{ marginBottom: "15px" }}>
-          <input
-            type="number"
-            placeholder="Search by ID"
-            value={searchId}
-            onChange={(e) => setSearchId(e.target.value)}
-            style={{
-              padding: "8px 12px",
-              borderRadius: "8px",
-              marginRight: "10px",
-              border: "none"
-            }}
-          />
+          {/* Search Inputs */}
+          <div className="search-group">
+            <input
+              type="number"
+              placeholder="Search by ID"
+              value={searchId}
+              onChange={(e) => setSearchId(e.target.value)}
+            />
+            <button className="btn-search" onClick={searchCustomerById}>
+              Search ID
+            </button>
+            <button
+              className="btn-reset"
+              onClick={() => {
+                setSearchId("");
+                loadCustomers();
+              }}
+            >
+              Reset
+            </button>
+          </div>
 
-          <button
-            onClick={searchCustomerById}
-            style={{
-              padding: "8px 16px",
-              borderRadius: "8px",
-              border: "none",
-              background: "#000",
-              color: "#fff",
-              cursor: "pointer"
-            }}
-          >
-            Search ID
-          </button>
+          <div className="search-group">
+            <input
+              type="text"
+              placeholder="Search by Name"
+              value={searchName}
+              onChange={(e) => setSearchName(e.target.value)}
+            />
+            <button className="btn-search" onClick={searchCustomerByName}>
+              Search Name
+            </button>
+            <button
+              className="btn-reset"
+              onClick={() => {
+                setSearchName("");
+                loadCustomers();
+              }}
+            >
+              Reset
+            </button>
+          </div>
 
-          <button
-            onClick={() => {
-              setSearchId("");
-              loadCustomers();
-            }}
-            style={{
-              padding: "8px 16px",
-              borderRadius: "8px",
-              border: "none",
-              background: "#fff",
-              color: "#000",
-              marginLeft: "10px",
-              cursor: "pointer"
-            }}
-          >
-            Reset
-          </button>
+          {/* Customer Table */}
+          <div className="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {customers.map((c) => (
+                  <tr key={c.id}>
+                    <td>{c.id}</td>
+                    <td>{c.name}</td>
+                    <td>{c.email}</td>
+                    <td>{c.phone}</td>
+                    <td className="actions">
+                      <button
+                        className="btn-edit"
+                        onClick={() => navigate(`/edit/${c.id}`)}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className="btn-delete"
+                        onClick={() => deleteCustomer(c.id)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-
-        {/* ------------------ NEW: Search by Name ------------------ */}
-        <div style={{ marginBottom: "20px" }}>
-          <input
-            type="text"
-            placeholder="Search by Name"
-            value={searchName}
-            onChange={(e) => setSearchName(e.target.value)}
-            style={{
-              padding: "8px 12px",
-              borderRadius: "8px",
-              marginRight: "10px",
-              border: "none"
-            }}
-          />
-
-          <button
-            onClick={searchCustomerByName}
-            style={{
-              padding: "8px 16px",
-              borderRadius: "8px",
-              border: "none",
-              background: "#000",
-              color: "#fff",
-              cursor: "pointer"
-            }}
-          >
-            Search Name
-          </button>
-
-          <button
-            onClick={() => {
-              setSearchName("");
-              loadCustomers();
-            }}
-            style={{
-              padding: "8px 16px",
-              borderRadius: "8px",
-              border: "none",
-              background: "#fff",
-              color: "#000",
-              marginLeft: "10px",
-              cursor: "pointer"
-            }}
-          >
-            Reset
-          </button>
-        </div>
-
-        {/* ------------------ TABLE ------------------ */}
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {customers.map((c) => (
-              <tr key={c.id}>
-                <td>{c.id}</td>
-                <td>{c.name}</td>
-                <td>{c.email}</td>
-                <td>{c.phone}</td>
-                <td>
-                  <button
-                    className="action-btn edit"
-                    onClick={() => navigate(`/edit/${c.id}`)}
-                  >
-                    Edit
-                  </button>
-
-                  <button
-                    className="action-btn delete"
-                    onClick={() => deleteCustomer(c.id)}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
       </div>
 
-      {/* POPUP */}
       {popupMessage && (
         <Popup
           message={popupMessage}
@@ -228,6 +172,8 @@ export default function Dashboard() {
           onClose={() => setPopupMessage(null)}
         />
       )}
+
+      <Footer />
     </>
   );
 }
