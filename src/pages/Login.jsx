@@ -24,7 +24,7 @@ export default function Login() {
       setShowPopup(true);
       setTimeout(() => {
         setShowPopup(false);
-        navigate("/dashboard");
+        navigate("/admin");
       }, 1500);
       return;
     }

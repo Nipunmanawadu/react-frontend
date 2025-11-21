@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { vehicleApi } from "../api/vehicleApi";
-import "../styles/vehicle.css";
+import "../styles/vehicleM.css";
 import "../styles/Footer.css";
 import Footer from "../components/Footer";
 import Navbar1 from "../components/Navbar1";

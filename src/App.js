@@ -8,7 +8,7 @@ import CustomerDashboard from "./pages/CustomerDashboard";
 import EditCustomer from "./pages/EditCustomer";  // Admin edit
 import Profile from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";    // Customer edit
-
+import DashboardAdmin from "./pages/DashboardAdmin"; 
 import VehicleManagement from "./pages/VehicleManagement";
 import VehicleView from "./pages/VehicleView";
 import Home from "./pages/Home";
@@ -36,6 +36,7 @@ function App() {
         <Route path="/customerdashboard" element={<CustomerDashboard />} />
 
         {/* Admin edit customer */}
+        <Route path="/admin" element={<DashboardAdmin />} />
         <Route path="/edit/:id" element={<EditCustomer />} />
 
         {/* Customer profile & edit */}

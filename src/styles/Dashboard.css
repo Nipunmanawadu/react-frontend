@@ -1,0 +1,88 @@
+/* --- HERO BACKGROUND IMAGE --- */
+.admin-hero {
+  width: 100%;
+  height: 100vh;
+
+  background: url("https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg")
+              center/cover no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+/* Dark overlay */
+.admin-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* --- GLASS CARD --- */
+.admin-card {
+  position: relative;
+  z-index: 5;
+
+  width: 90%;
+  max-width: 450px;
+
+  padding: 40px 35px;
+  text-align: center;
+
+  /* Frosted glass effect */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  box-shadow: 0 10px 35px rgba(0,0,0,0.3);
+}
+
+/* Title */
+.admin-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 35px;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+/* Button group layout */
+.admin-btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Buttons */
+.admin-btn {
+  padding: 16px 28px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  background: linear-gradient(135deg, #ff9800, #ffb74d);
+  color: white;
+  border: none;
+  cursor: pointer;
+
+  box-shadow: 0 6px 15px rgba(255, 152, 0, 0.35);
+  transition: 0.3s ease;
+}
+
+.admin-btn:hover {
+  transform: translateY(-4px);
+  background: linear-gradient(135deg, #ffa726, #ffcc80);
+  box-shadow: 0 12px 28px rgba(255, 152, 0, 0.45);
+}
+
+.admin-btn:active {
+  transform: translateY(-1px);
+}
