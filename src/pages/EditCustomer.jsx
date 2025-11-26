@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { customerApi } from "../api/customerApi";
-import Navbar1 from "../components/Navbar1";     // ✅ Navbar
-import Footer from "../components/Footer";       // ✅ Footer
-import "../styles/EditCustomer.css";             // Separate CSS
+import Navbar1 from "../components/Navbar1";     
+import Footer from "../components/Footer";       
+import "../styles/EditCustomer.css";             
 
 export default function EditCustomer() {
   const { id } = useParams();
@@ -44,10 +44,8 @@ export default function EditCustomer() {
 
   return (
     <>
-      {/* Navbar */}
       <Navbar1 />
 
-      {/* Edit Customer Container */}
       <div className="ec-container">
         <div className="ec-card">
           <h2>Edit Customer</h2>
@@ -86,11 +84,9 @@ export default function EditCustomer() {
           </form>
         </div>
 
-        {/* Popup Message */}
         {popup && <div className="ec-popup">{popup}</div>}
       </div>
 
-      {/* Footer */}
       <Footer />
     </>
   );

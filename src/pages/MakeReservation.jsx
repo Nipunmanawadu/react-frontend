@@ -19,7 +19,7 @@ function MakeReservation() {
   const [totalPrice, setTotalPrice] = useState(0);
   const [date, setDate] = useState("");
 
-  const loggedInCustomerId = 1;
+  const loggedInCustomerId =localStorage.getItem("customerId");
 
   useEffect(() => {
     // Fetch customer
@@ -32,6 +32,7 @@ function MakeReservation() {
     fetch(`http://localhost:8082/vehicle-service/vehicles/${carId}`)
       .then(res => res.json())
       .then(data => {
+        console.log("Vehicle data:", data);
         setCarModel(data.model);
         setPricePerDay(data.price);
       })

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getCustomerById } from "../api/customerApi";
 import Navbar1 from "../components/Navbar1";
 import Footer from "../components/Footer";
-import "../styles/Profile.css"; // ✅ updated import
+import "../styles/Profile.css"; 
 
 export default function Profile() {
   const [user, setUser] = useState(null);

@@ -1,4 +1,4 @@
-/* General Navbar */
+
 .vehicle-navbar {
   display: flex;
   justify-content: space-between;
@@ -16,7 +16,6 @@
   transition: all 0.3s ease;
 }
 
-/* Left links */
 .navbar-left a {
   color: #ffffff;
   text-decoration: none;
@@ -46,14 +45,12 @@
   width: 100%;
 }
 
-/* Right section */
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 1rem; /* Space between buttons */
+  gap: 1rem; 
 }
 
-/* Sign Up button */
 .btn-signup {
   padding: 7px 18px;
   border-radius: 25px;
@@ -63,7 +60,7 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  text-decoration: none; /* Link styling */
+  text-decoration: none; 
 }
 
 .btn-signup:hover {
@@ -72,7 +69,6 @@
   transform: scale(1.05);
 }
 
-/* Admin button - same style as Sign Up */
 .btn-admin {
   padding: 7px 18px;
   border-radius: 5px;
@@ -91,7 +87,6 @@
   transform: scale(1.05);
 }
 
-/* Customer name display */
 .customer-name {
   padding: 6px 14px;
   border-radius: 20px;
@@ -107,7 +102,6 @@
   color: #0abf7a;
 }
 
-/* Logout button */
 .btn-logout {
   padding: 6px 14px;
   border-radius: 20px;

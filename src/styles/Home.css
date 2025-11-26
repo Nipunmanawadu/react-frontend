@@ -3,7 +3,6 @@
   color: var(--text-dark);
 }
 
-/* Hero Section */
 .hero-section {
   position: relative;
   height: 70vh;
@@ -48,7 +47,6 @@
   background-color: #e68a00;
 }
 
-/* Features Section */
 .features-section {
   display: flex;
   justify-content: center;

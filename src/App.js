@@ -1,13 +1,12 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-// Pages
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import CustomerDashboard from "./pages/CustomerDashboard";
-import EditCustomer from "./pages/EditCustomer";  // Admin edit
+import EditCustomer from "./pages/EditCustomer";  
 import Profile from "./pages/Profile";
-import EditProfile from "./pages/EditProfile";    // Customer edit
+import EditProfile from "./pages/EditProfile";    
 import DashboardAdmin from "./pages/DashboardAdmin"; 
 import VehicleManagement from "./pages/VehicleManagement";
 import VehicleView from "./pages/VehicleView";
@@ -25,32 +24,25 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Home */}
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
 
-        {/* Vehicle Management */}
         <Route path="/vehicles" element={<VehicleManagement />} />
         <Route path="/view" element={<VehicleView />} />
 
-        {/* User Management */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/customerdashboard" element={<CustomerDashboard />} />
 
-        {/* Admin edit customer */}
         <Route path="/admin" element={<DashboardAdmin />} />
         <Route path="/edit/:id" element={<EditCustomer />} />
 
-        {/* Customer profile & edit */}
         <Route path="/profile" element={<Profile />} />
         <Route path="/edit-profile/:id" element={<EditProfile />} />
 
-         {/* Reservation Microservice Routes */}
         <Route path="/make-reservation/:carId" element={<MakeReservation />} />
         <Route path="/my-reservation" element={<MyReservation />} />
-
-        {/* Optional redirect */}
+        
         <Route path="/home" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>

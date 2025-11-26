@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // <-- import
+import { useNavigate } from "react-router-dom"; 
 import "../styles/Home.css";
 import "../styles/Footer.css";
 import Footer from "../components/Footer";
@@ -9,17 +9,15 @@ const Home = () => {
   const heroImage =
     "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1950&q=80";
 
-  const navigate = useNavigate(); // <-- hook
+  const navigate = useNavigate();
 
   const handleBrowseClick = () => {
-    navigate("/view"); // <-- navigate to VehicleView
+    navigate("/view"); 
   };
 
   return (
     <div className="home-page">
       <Navbar1 />
-
-      {/* Hero Section */}
       <section
         className="hero-section"
         style={{ backgroundImage: `url(${heroImage})` }}
@@ -33,7 +31,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="features-section">
         <div className="feature">
           <h2>Search with Ease</h2>
@@ -49,7 +46,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Footer Section */}
       <Footer />
     </div>
   );

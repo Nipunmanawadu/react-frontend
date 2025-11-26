@@ -1,4 +1,4 @@
-/* ---------- Animated Background with Image ---------- */
+
 .dashboard-bg {
   min-height: 100vh;
   padding: 120px 20px 50px;
@@ -14,15 +14,14 @@
   content: '';
   position: absolute;
   top:0; left:0; right:0; bottom:0;
-  background: rgba(10,10,10,0.6); /* dark overlay */
+  background: rgba(10,10,10,0.6);
   z-index: 1;
 }
 
-/* ---------- Glass Card ---------- */
 .dashboard-card {
   width: 100%;
   max-width: 1200px;
-  background: rgba(0,0,0,0.85); /* darker card */
+  background: rgba(0,0,0,0.85); 
   border-radius: 20px;
   padding: 30px;
   color: #fff;
@@ -32,7 +31,7 @@
   z-index: 2; 
 }
 
-/* ---------- Title ---------- */
+
 .dashboard-card h2 {
   text-align: center;
   font-size: 2rem;
@@ -41,7 +40,7 @@
   text-shadow: 0 2px 6px rgba(0,0,0,0.7);
 }
 
-/* ---------- Search Inputs ---------- */
+
 .search-group {
   display: flex;
   flex-wrap: wrap;
@@ -66,7 +65,7 @@
   box-shadow: 0 0 8px #00ffd5;
 }
 
-/* Buttons */
+
 .btn-search {
   background: linear-gradient(135deg,#00ffd5,#00bfa5);
   color: #1e1e1e;
@@ -96,7 +95,7 @@
   transform: scale(1.05);
 }
 
-/* ---------- Table ---------- */
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -109,7 +108,7 @@ table {
 
 
 tbody tr:hover {
-  background: #0b6b3d; /* hover effect */
+  background: #0b6b3d; 
   color: #fff;
 }
 
@@ -120,7 +119,7 @@ td.actions {
 }
 
 .btn-edit {
-  background: #00ffd5; /* blue */
+  background: #00ffd5;
  
   padding: 6px 23px;
   border-radius: 6px;
@@ -134,7 +133,7 @@ td.actions {
 }
 
 .btn-delete {
-  background: #516063; /* orange */
+  background: #516063; 
   color: #fff;
   padding: 6px 17px;
   border-radius: 6px;
@@ -148,7 +147,7 @@ td.actions {
 }
 
 
-/* ---------- Responsive ---------- */
+
 @media(max-width:768px){
   .search-group{flex-direction:column;}
   .search-group button, .search-group input{width:100%;}

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { customerApi } from "../api/customerApi";
-import Navbar1 from "../components/Navbar1";   // ✅ Navbar
-import Footer from "../components/Footer";     // ✅ Footer
+import Navbar1 from "../components/Navbar1";   
+import Footer from "../components/Footer";    
 import "../styles/login.css";
 
 export default function Login() {
@@ -16,7 +16,7 @@ export default function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    // Admin Login
+   
     if (form.email === "admin" && form.password === "123") {
       localStorage.setItem("customerName", "Admin");
       localStorage.setItem("customerEmail", "admin");
@@ -28,8 +28,6 @@ export default function Login() {
       }, 1500);
       return;
     }
-
-    // Customer Login
     try {
       const res = await customerApi.post("/login", form);
 
@@ -54,10 +52,9 @@ export default function Login() {
 
   return (
     <>
-      {/* Navbar */}
+
       <Navbar1 />
 
-      {/* Login Container */}
       <div className="lg-container">
         <div className="lg-card">
           <h2>Login</h2>
@@ -91,15 +88,12 @@ export default function Login() {
           </p>
         </div>
 
-        {/* Popup message */}
         {showPopup && (
           <div className="lg-popup">
             Welcome! Login Successful.
           </div>
         )}
       </div>
-
-      {/* Footer */}
       <Footer />
     </>
   );

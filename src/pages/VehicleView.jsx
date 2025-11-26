@@ -114,8 +114,7 @@ function VehicleView() {
 
                 <button
                   className="reserve-button"
-                  onClick={() => navigate("/make-reservation/:carId")} // <-- Add this
-                  
+                  onClick={() => navigate(`/make-reservation/${v.id}`)} // <-- Add this
                 >
                   Reserve
                 </button>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"; 
 import { customerApi } from "../api/customerApi";
 import { useParams, useNavigate } from "react-router-dom";
-import Navbar1 from "../components/Navbar1"; // ✅ Navbar
-import Footer from "../components/Footer";   // ✅ Footer
+import Navbar1 from "../components/Navbar1"; 
+import Footer from "../components/Footer";   
 import "../styles/EditProfile.css";
 
 export default function EditUserProfile() {
@@ -40,10 +40,8 @@ export default function EditUserProfile() {
 
   return (
     <>
-      {/* Navbar */}
       <Navbar1 />
 
-      {/* Hero + Glass Card */}
       <div className="ec-container">
         <div className="ec-card">
           <h2>Edit Profile</h2>
@@ -87,7 +85,6 @@ export default function EditUserProfile() {
         </div>
       </div>
 
-      {/* Footer */}
       <Footer />
     </>
   );

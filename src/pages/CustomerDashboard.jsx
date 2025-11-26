@@ -80,7 +80,6 @@ export default function Dashboard() {
         <div className="dashboard-card">
           <h2>Customer Dashboard</h2>
 
-          {/* Search Inputs */}
           <div className="search-group">
             <input
               type="number"
@@ -123,7 +122,6 @@ export default function Dashboard() {
             </button>
           </div>
 
-          {/* Customer Table */}
           <div className="table-responsive">
             <table>
               <thead>

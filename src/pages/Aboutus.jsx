@@ -9,7 +9,6 @@ const About = () => {
     <div className="about-page">
       <Navbar1 />
 
-      {/* Hero Section */}
       <section className="about-hero">
         <div className="about-hero-overlay">
           <h1>About RapidCars</h1>
@@ -21,15 +20,12 @@ const About = () => {
         </div>
       </section>
 
-      {/* Intro Section */}
       <div className="about-intro">
         <p>
           Whether you're looking for your next car or want to list your own,
           Rapid Cars makes the process seamless, trustworthy, and efficient.
         </p>
       </div>
-
-      {/* Mission Section */}
       <section className="about-mission">
         <h2>Our Mission</h2>
         <div className="mission-cards">
@@ -59,8 +55,6 @@ const About = () => {
           </div>
         </div>
       </section>
-
-      {/* Team Section */}
       <section className="about-team">
         <h2>Meet the Team</h2>
         <div className="team-grid">

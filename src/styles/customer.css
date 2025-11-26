@@ -1,4 +1,4 @@
-/* General Body */
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -7,7 +7,6 @@ body {
   color: #fff;
 }
 
-/* Welcome Popup */
 
 @keyframes fadeInOut {
   0% { opacity: 0; transform: translateY(-10px); }
@@ -16,7 +15,7 @@ body {
   100% { opacity: 0; transform: translateY(-10px); }
 }
 
-/* Popup overlay */
+
 .popup-overlay {
   position: fixed;
   top: 0; left: 0;
@@ -28,32 +27,28 @@ body {
   z-index: 9999;
 }
 
-/* Popup box */
-/* Popup box - smaller */
 .popup {
   background: #fff;
   color: #000;
   font-family: 'Times New Roman', Times, serif;
-  padding: 12px 20px;      /* smaller padding */
+  padding: 12px 20px;      
   border-radius: 10px;
-  min-width: 200px;        /* smaller width */
-  max-width: 250px;        /* optional max width */
+  min-width: 200px;        
+  max-width: 250px;        
   text-align: center;
-  font-size: 14px;         /* slightly smaller font */
+  font-size: 14px;         
   position: fixed;
-  top: 40%;                /* center vertically better */
+  top: 40%;                
   left: 50%;
   transform: translateX(-50%);
   box-shadow: 0 6px 20px rgba(0,0,0,0.25);
   z-index: 9999;
 }
 
-/* Types */
+
 .popup.warning { background: #fff3cd; color: #856404; }
 .popup.success { background: #d4edda; color: #155724; }
-.popup.error { background: #f8d7da; color: #721c24; }
 
-/* Buttons */
 .popup-btn {
   padding: 6px 14px;
   border-radius: 6px;

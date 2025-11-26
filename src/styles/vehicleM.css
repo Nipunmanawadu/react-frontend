@@ -35,7 +35,6 @@ body {
   padding-bottom: 10px;
 }
 
-/* --- Form --- */
 .vm-form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -84,7 +83,6 @@ body {
   background-color: #545b62;
 }
 
-/* --- Table --- */
 .vm-table {
   width: 100%;
   border-collapse: separate;
@@ -115,7 +113,6 @@ body {
   background-color: #eef2f6;
 }
 
-/* --- Photo --- */
 .vm-photo {
   width: 70px;
   height: 45px;
@@ -124,7 +121,6 @@ body {
   border: 1px solid var(--vm-border);
 }
 
-/* --- Action Buttons --- */
 .vm-actions {
   display: flex;
   gap: 10px;

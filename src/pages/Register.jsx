@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { customerApi } from "../api/customerApi";
-import Navbar1 from "../components/Navbar1"; // ✅ Navbar
-import Footer from "../components/Footer";   // ✅ Footer
+import Navbar1 from "../components/Navbar1"; 
+import Footer from "../components/Footer";   
 import "../styles/register.css";
 
 export default function Register() {
@@ -22,7 +22,7 @@ export default function Register() {
     try {
       await customerApi.post("/register", form);
       alert("Registration successful!");
-      navigate("/login"); // redirect after success
+      navigate("/login"); 
     } catch (err) {
       alert("Registration failed. Please try again!");
       console.error(err);
@@ -31,10 +31,7 @@ export default function Register() {
 
   return (
     <>
-      {/* Navbar */}
       <Navbar1 />
-
-      {/* Page Container */}
       <div className="reg-container">
         <div className="reg-card">
           <h2>Register</h2>
@@ -88,7 +85,6 @@ export default function Register() {
         </div>
       </div>
 
-      {/* Footer */}
       <Footer />
     </>
   );

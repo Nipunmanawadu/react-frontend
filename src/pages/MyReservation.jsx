@@ -69,14 +69,11 @@ function MyReservations() {
                   <tr key={res.id}>
                     <td>#{res.carId}</td>
                     
-                    {/* Editable Date */}
                     <td>
                       {editingId === res.id ? 
                         <input type="date" value={editDate} onChange={e => setEditDate(e.target.value)} /> 
                         : res.reservationDate}
                     </td>
-
-                    {/* Editable Days */}
                     <td>
                       {editingId === res.id ? 
                         <input type="number" value={editDays} onChange={e => setEditDays(e.target.value)} style={{width: "60px"}}/> 
@@ -85,7 +82,6 @@ function MyReservations() {
 
                     <td>${res.totalPrice}</td>
 
-                    {/* Buttons */}
                     <td>
                       {editingId === res.id ? (
                         <button onClick={() => handleSave(res.id)} className="btn-save">Save</button>
