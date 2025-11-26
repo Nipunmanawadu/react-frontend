@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import "../styles/App.css";
 import "../styles/Footer.css";
-import Footer from "../components/Footer";
 
+import Navbar1 from "../components/Navbar1";
+import Footer from "../components/Footer";
 
 function MyReservations() {
   const [reservations, setReservations] = useState([]);
@@ -45,63 +46,68 @@ function MyReservations() {
   };
 
   return (
-    <div className="app-container">
-      <div className="card">
-        <h2>My Reservations</h2>
-        
-        <table className="reservation-table">
-          <thead>
-            <tr>
-              <th>Car ID</th>
-              <th>Date</th>
-              <th>Days</th>
-              <th>Total</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {reservations.length > 0 ? (
-              reservations.map(res => (
-                <tr key={res.id}>
-                  <td>#{res.carId}</td>
-                  
-                  {/* Editable Date */}
-                  <td>
-                    {editingId === res.id ? 
-                      <input type="date" value={editDate} onChange={e => setEditDate(e.target.value)} /> 
-                      : res.reservationDate}
-                  </td>
+    <>
+      <Navbar1 />
 
-                  {/* Editable Days */}
-                  <td>
-                    {editingId === res.id ? 
-                      <input type="number" value={editDays} onChange={e => setEditDays(e.target.value)} style={{width: "60px"}}/> 
-                      : res.durationDays}
-                  </td>
-
-                  <td>${res.totalPrice}</td>
-
-                  {/* Buttons */}
-                  <td>
-                    {editingId === res.id ? (
-                      <button onClick={() => handleSave(res.id)} className="btn-save">Save</button>
-                    ) : (
-                      <button onClick={() => startEdit(res)} className="btn-edit">Edit</button>
-                    )}
-                    <button onClick={() => handleDelete(res.id)} className="btn-delete">Cancel</button>
-                  </td>
-                </tr>
-              ))
-            ) : (
+      <div className="app-container">
+        <div className="card">
+          <h2>My Reservations</h2>
+          
+          <table className="reservation-table">
+            <thead>
               <tr>
-                <td colSpan="5" style={{textAlign:"center", padding:"20px"}}>No reservations found.</td>
+                <th>Car ID</th>
+                <th>Date</th>
+                <th>Days</th>
+                <th>Total</th>
+                <th>Actions</th>
               </tr>
-            )}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {reservations.length > 0 ? (
+                reservations.map(res => (
+                  <tr key={res.id}>
+                    <td>#{res.carId}</td>
+                    
+                    {/* Editable Date */}
+                    <td>
+                      {editingId === res.id ? 
+                        <input type="date" value={editDate} onChange={e => setEditDate(e.target.value)} /> 
+                        : res.reservationDate}
+                    </td>
+
+                    {/* Editable Days */}
+                    <td>
+                      {editingId === res.id ? 
+                        <input type="number" value={editDays} onChange={e => setEditDays(e.target.value)} style={{width: "60px"}}/> 
+                        : res.durationDays}
+                    </td>
+
+                    <td>${res.totalPrice}</td>
+
+                    {/* Buttons */}
+                    <td>
+                      {editingId === res.id ? (
+                        <button onClick={() => handleSave(res.id)} className="btn-save">Save</button>
+                      ) : (
+                        <button onClick={() => startEdit(res)} className="btn-edit">Edit</button>
+                      )}
+                      <button onClick={() => handleDelete(res.id)} className="btn-delete">Cancel</button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="5" style={{textAlign:"center", padding:"20px"}}>No reservations found.</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
+
       <Footer />
-    </div>
+    </>
   );
 }
 
