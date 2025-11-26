@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import './styles/App.css'
+import "../styles/App.css";
+import "../styles/Footer.css";
+import Footer from "../components/Footer";
+
 
 function MakeReservation() {
   const { carId } = useParams();
@@ -93,6 +96,7 @@ function MakeReservation() {
           
         </form>
       </div>
+      <Footer />
     </div>
   );
 }

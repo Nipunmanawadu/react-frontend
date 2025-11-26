@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
-import './styles/App.css'
+import "../styles/App.css";
+import "../styles/Footer.css";
+import Footer from "../components/Footer";
+
 
 function MyReservations() {
   const [reservations, setReservations] = useState([]);
@@ -97,6 +100,7 @@ function MyReservations() {
           </tbody>
         </table>
       </div>
+      <Footer />
     </div>
   );
 }
