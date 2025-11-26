@@ -1,0 +1,141 @@
+body {
+  background-color: #f3f4f6; /* Light Grey Background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+h2 {
+  color: #1e293b; /* Dark Slate */
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- MAIN CONTAINER --- */
+.app-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* --- CARD STYLE (Used for Forms and Tables) --- */
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft Shadow */
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+/* --- FORM INPUTS --- */
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #64748b;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box; /* Ensures padding doesn't break layout */
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #2563eb; /* Blue border on click */
+  outline: none;
+}
+
+input:disabled {
+  background-color: #f1f5f9;
+  color: #94a3b8;
+}
+
+/* --- BUTTONS --- */
+button {
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+}
+
+.btn-primary {
+  background-color: #f59e0b; /* Golden Orange */
+  color: white;
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.btn-primary:hover {
+  background-color: #d97706;
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.btn-edit {
+  background-color: #2563eb; /* Blue */
+  color: white;
+  margin-right: 8px;
+}
+
+.btn-save {
+  background-color: #10b981; /* Green */
+  color: white;
+  margin-right: 8px;
+}
+
+.btn-delete {
+  background-color: #ef4444; /* Red */
+  color: white;
+}
+
+.btn-edit:hover, .btn-delete:hover, .btn-save:hover {
+  opacity: 0.9;
+}
+
+/* --- TABLE STYLES --- */
+.reservation-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.reservation-table th {
+  background-color: #1e293b;
+  color: white;
+  padding: 15px;
+  text-align: left;
+}
+
+.reservation-table td {
+  padding: 15px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.reservation-table tr:hover {
+  background-color: #f8fafc; /* Highlight row on hover */
+}
+
+.total-price {
+  font-size: 1.5rem;
+  color: #2563eb; /* Blue text for price */
+  text-align: center;
+  margin: 20px 0;
+  font-weight: bold;
+}

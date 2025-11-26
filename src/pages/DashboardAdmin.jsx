@@ -31,6 +31,13 @@ function DashboardAdmin() {
             >
               Customer Management
             </button>
+
+            <button
+              className="admin-btn"
+              onClick={() => navigate("my-reservation")}
+            >
+              Reservation Management
+            </button>
           </div>
 
         </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import './styles/App.css'
 
 function MakeReservation() {
   const { carId } = useParams();
@@ -22,7 +23,7 @@ function MakeReservation() {
       .catch(() => setCustomerName("Loading...")); // Fallback
 
     // --- FETCH CAR (GitHub Ready Version) ---
-    fetch(`http://localhost:8082/vehicles/${carId}`)
+    fetch(`http://localhost:8082/vehicle-service/vehicles/${carId}`)
       .then(res => { if(!res.ok) throw new Error(); return res.json(); })
       .then(data => { setCarModel(data.model); setPricePerDay(data.price); })
       .catch(() => setCarModel("Loading...")); // Fallback
@@ -51,7 +52,7 @@ function MakeReservation() {
     .then(res => res.json())
     .then(() => {
       alert("Reservation Successful!");
-      navigate("/my-reservations"); 
+      navigate("/my-reservation"); 
     })
     .catch(() => alert("Error connecting to Backend!"));
   };

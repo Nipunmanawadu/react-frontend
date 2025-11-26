@@ -13,12 +13,13 @@ import VehicleManagement from "./pages/VehicleManagement";
 import VehicleView from "./pages/VehicleView";
 import Home from "./pages/Home";
 import About from "./pages/Aboutus";
-import MakeReservation from './MakeReservation';
-import MyReservations from './MyReservations';
+import MakeReservation from './pages/MakeReservation';
+import MyReservation from './pages/MyReservation';
 
 // Styles
 import "./styles/vehicle.css";
 import "./styles/customer.css";
+import "./styles/App.css";//reservation css
 
 function App() {
   return (
@@ -47,7 +48,7 @@ function App() {
 
          {/* Reservation Microservice Routes */}
         <Route path="/make-reservation/:carId" element={<MakeReservation />} />
-        <Route path="/my-reservations" element={<MyReservations />} />
+        <Route path="/my-reservation" element={<MyReservation />} />
 
         {/* Optional redirect */}
         <Route path="/home" element={<Navigate to="/" />} />

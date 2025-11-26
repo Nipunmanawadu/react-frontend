@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import './styles/App.css'
 
 function MyReservations() {
   const [reservations, setReservations] = useState([]);
