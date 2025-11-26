@@ -13,6 +13,8 @@ import VehicleManagement from "./pages/VehicleManagement";
 import VehicleView from "./pages/VehicleView";
 import Home from "./pages/Home";
 import About from "./pages/Aboutus";
+import MakeReservation from './MakeReservation';
+import MyReservations from './MyReservations';
 
 // Styles
 import "./styles/vehicle.css";
@@ -42,6 +44,10 @@ function App() {
         {/* Customer profile & edit */}
         <Route path="/profile" element={<Profile />} />
         <Route path="/edit-profile/:id" element={<EditProfile />} />
+
+         {/* Reservation Microservice Routes */}
+        <Route path="/make-reservation/:carId" element={<MakeReservation />} />
+        <Route path="/my-reservations" element={<MyReservations />} />
 
         {/* Optional redirect */}
         <Route path="/home" element={<Navigate to="/" />} />
