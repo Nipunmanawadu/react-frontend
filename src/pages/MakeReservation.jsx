@@ -13,13 +13,15 @@ function MakeReservation() {
   const navigate = useNavigate();
 
   const [carModel, setCarModel] = useState("");
-  const [pricePerDay, setPricePerDay] = useState(0);
+  const [pricePerDay, setPricePerDay] = useState(0); // This is the vehicle price
   const [customerName, setCustomerName] = useState("");
-  const [duration, setDuration] = useState(1);
-  const [totalPrice, setTotalPrice] = useState(0);
+
+  const [advanceAmount, setAdvanceAmount] = useState(0);
+  const [balance, setBalance] = useState(0);
+
   const [date, setDate] = useState("");
 
-  const loggedInCustomerId =localStorage.getItem("customerId");
+  const loggedInCustomerId = localStorage.getItem("customerId");
 
   useEffect(() => {
     // Fetch customer
@@ -28,20 +30,22 @@ function MakeReservation() {
       .then(data => setCustomerName(data.name))
       .catch(() => setCustomerName("Loading..."));
 
-    // Fetch car
+    // Fetch car details
     fetch(`http://localhost:8082/vehicle-service/vehicles/${carId}`)
       .then(res => res.json())
       .then(data => {
         console.log("Vehicle data:", data);
         setCarModel(data.model);
-        setPricePerDay(data.price);
+        setPricePerDay(data.price); // vehicle price
+        setBalance(data.price); // initial balance
       })
       .catch(() => setCarModel("Loading..."));
   }, [carId]);
 
+  // Calculate balance automatically
   useEffect(() => {
-    setTotalPrice(pricePerDay * duration);
-  }, [duration, pricePerDay]);
+    setBalance(pricePerDay - advanceAmount);
+  }, [advanceAmount, pricePerDay]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -50,8 +54,9 @@ function MakeReservation() {
       customerId: loggedInCustomerId,
       carId: Number(carId),
       reservationDate: date,
-      durationDays: duration,
-      totalPrice: totalPrice,
+      advanceAmount: advanceAmount,
+      balanceAmount: balance,
+      totalPrice: pricePerDay, // full vehicle price
       status: "Confirmed"
     };
 
@@ -88,22 +93,26 @@ function MakeReservation() {
             </div>
 
             <div className="form-group">
-              <label>Pick a Date</label>
-              <input type="date" required onChange={e => setDate(e.target.value)} />
+              <label>Purchase Date</label>
+              <input
+                type="date"
+                required
+                onChange={e => setDate(e.target.value)}
+              />
             </div>
 
             <div className="form-group">
-              <label>Number of Days</label>
+              <label>Advance Amount</label>
               <input
                 type="number"
-                min="1"
-                value={duration}
-                onChange={e => setDuration(e.target.value)}
+                min="5000"
+                value={advanceAmount}
+                onChange={e => setAdvanceAmount(Number(e.target.value))}
               />
             </div>
 
             <div className="total-price">
-              Total: ${totalPrice}
+              Balance Amount : Rs {balance}
             </div>
 
             <button type="submit" className="btn-primary">

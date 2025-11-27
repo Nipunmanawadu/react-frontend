@@ -13,8 +13,8 @@ function VehicleView() {
   const [searchModel, setSearchModel] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-    const navigate = useNavigate(); // <-- Initialize navigate
-  const customerName = localStorage.getItem("customerName");
+    const navigate = useNavigate(); 
+
 
   const fetchVehicles = async (model = "") => {
     setLoading(true);
