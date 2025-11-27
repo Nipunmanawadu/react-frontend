@@ -47,15 +47,7 @@ function VehicleView() {
     fetchVehicles();
   };
 
-  const handleReserveClick = () => {
-    if (!customerName) {
-      // Not logged in → navigate to login
-      navigate("/login");
-    } else {
-      // Logged in → navigate to reservation page (optional)
-      navigate("/reserve"); // replace with your reservation route
-    }
-  };
+  
 
   useEffect(() => {
     fetchVehicles();
@@ -63,7 +55,7 @@ function VehicleView() {
 
   return (
     <>
-      <Navbar1 /> {/* <-- Navbar is now scoped & safe */}
+      <Navbar1 /> 
 
       <div className="container">
         <h2>Search Available Vehicles</h2>
@@ -114,7 +106,7 @@ function VehicleView() {
 
                 <button
                   className="reserve-button"
-                  onClick={() => navigate(`/make-reservation/${v.id}`)} // <-- Add this
+                  onClick={() => navigate(`/make-reservation/${v.id}`)} 
                 >
                   Reserve
                 </button>
