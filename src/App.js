@@ -14,6 +14,7 @@ import Home from "./pages/Home";
 import About from "./pages/Aboutus";
 import MakeReservation from './pages/MakeReservation';
 import MyReservation from './pages/MyReservation';
+import AdminReservations from "./pages/AdminReservations";
 
 // Styles
 import "./styles/vehicle.css";
@@ -42,6 +43,8 @@ function App() {
 
         <Route path="/make-reservation/:carId" element={<MakeReservation />} />
         <Route path="/my-reservation" element={<MyReservation />} />
+        <Route path="/admin-reservations" element={<AdminReservations />} />
+
         
         <Route path="/home" element={<Navigate to="/" />} />
       </Routes>
