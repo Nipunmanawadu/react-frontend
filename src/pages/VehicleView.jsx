@@ -102,7 +102,7 @@ function VehicleView() {
                   {v.company} {v.model}
                 </h3>
                 <p>Year: {v.year}</p>
-                <p>${parseFloat(v.price).toLocaleString()}</p>
+                <p>Rs {parseFloat(v.price).toLocaleString()}</p>
 
                 <button
                   className="reserve-button"
