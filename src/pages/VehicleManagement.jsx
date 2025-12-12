@@ -63,6 +63,7 @@ function VehicleManagement() {
   return (
     <>
       <Navbar1 />
+       <div className="dashboard-bg">
 
       <div className="vm-container">
         <h2 className="vm-title">{editing ? "Update Vehicle" : "Add Vehicle"}</h2>
@@ -133,6 +134,7 @@ function VehicleManagement() {
             ))}
           </tbody>
         </table>
+      </div>
       </div>
 
       <Footer />

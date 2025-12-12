@@ -1,13 +1,24 @@
 :root {
-  --vm-primary: rgba(0,0,0,0.75);
+  --vm-primary: rgba(0, 0, 0, 0.873);
   --vm-success: #4caf50;
   --vm-danger: #d32f2f;
   --vm-text: #212529;
   --vm-bg: #f5f8fa;
   --vm-card: #ffffff;
   --vm-border: #e3e8ee;
-  --vm-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  --vm-shadow: 0 4px 12px rgba(13, 11, 11, 0.864);
 }
+.dashboard-bg {
+  min-height: 100vh;
+  padding: 120px 20px 50px;
+  background: url('C:\Users\Gimasha\Desktop\vs\react-frontend\src\images\jackson-hendry-eodA_8CTOFo-unsplash.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+}
+
 
 body {
   font-family: 'Segoe UI', Roboto, Arial, sans-serif;
@@ -21,16 +32,18 @@ body {
   max-width: 1400px;
   margin: 30px auto;
   padding: 35px;
-  background-color: var(--vm-card);
-  border-radius: 12px;
-  box-shadow: var(--vm-shadow);
+  background-color: rgba(46, 56, 61, 0.85); 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
+  backdrop-filter: blur(5px); 
+  z-index: 10;
+  position: relative; 
 }
 
 .vm-title {
   text-align: center;
-  font-size: 2rem;
+  font-size: x-large;
   margin-bottom: 30px;
-  color: var(--vm-primary);
+  color: rgb(255, 255, 255);
   border-bottom: 2px solid var(--vm-border);
   padding-bottom: 10px;
 }
@@ -106,11 +119,10 @@ body {
 }
 
 .vm-table tr:nth-child(even) {
-  background-color: #fcfcfc;
+  background-color: rgba(255, 255, 255, 0.6);
 }
-
 .vm-table tr:hover {
-  background-color: #eef2f6;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .vm-photo {
