@@ -86,7 +86,7 @@ function MakeReservation() {
       });
   };
 
-  // --- COMPACT STYLES ---
+
   const pageContainer = {
     backgroundColor: "#f4f6f8",
     minHeight: "100vh",
@@ -122,7 +122,7 @@ function MakeReservation() {
     padding: "30px"
   };
 
-  // 2-Column Grid
+
   const gridContainer = {
     display: "grid",
     gridTemplateColumns: "1fr 1fr",
@@ -209,7 +209,7 @@ function MakeReservation() {
             <form onSubmit={handleSubmit}>
               <div style={gridContainer}>
                 
-                {/* ROW 1 */}
+               
                 <div>
                   <label style={label}>Customer Name</label>
                   <input type="text" value={customerName} disabled style={readOnlyInput} />
@@ -220,7 +220,7 @@ function MakeReservation() {
                   <input type="text" value={carModel} disabled style={readOnlyInput} />
                 </div>
 
-                {/* ROW 2 */}
+
                 <div>
                   <label style={label}>Total Price (Rs)</label>
                   <input

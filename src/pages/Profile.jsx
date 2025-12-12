@@ -37,7 +37,7 @@ export default function Profile() {
         <div className="pe-container">
           <h2 className="pe-title">My Profile</h2>
           <div className="pe-card">
-            {/* My Bookings button at top-right */}
+            
             <button
               className="pe-btn-bookings"
               onClick={() => navigate(`/my-reservation/`)}

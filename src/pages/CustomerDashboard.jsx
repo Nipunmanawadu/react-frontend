@@ -11,7 +11,7 @@ export default function Dashboard() {
   const [customers, setCustomers] = useState([]);
   const [searchId, setSearchId] = useState("");
   const [searchName, setSearchName] = useState("");
-  const [searchEmail, setSearchEmail] = useState(""); // ✅ Added
+  const [searchEmail, setSearchEmail] = useState(""); 
   const [deleteId, setDeleteId] = useState(null);
   const [popupMessage, setPopupMessage] = useState(null);
   const navigate = useNavigate();
@@ -73,7 +73,6 @@ export default function Dashboard() {
     }
   };
 
-  // ✅ Search by email
   const searchCustomerByEmail = async () => {
     if (!searchEmail.trim()) return loadCustomers();
     try {
@@ -93,7 +92,6 @@ export default function Dashboard() {
         <div className="dashboard-card">
           <h2>Customer Dashboard</h2>
 
-          {/* Search by ID */}
           <div className="search-group">
             <input
               type="number"
@@ -115,7 +113,6 @@ export default function Dashboard() {
             </button>
           </div>
 
-          {/* Search by Name */}
           <div className="search-group">
             <input
               type="text"
@@ -137,7 +134,7 @@ export default function Dashboard() {
             </button>
           </div>
 
-          {/* ✅ Search by Email */}
+          
           <div className="search-group">
             <input
               type="email"

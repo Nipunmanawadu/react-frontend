@@ -40,8 +40,8 @@
   flex-direction: column;
   gap: 1rem;
   text-align: left;
-  position: relative; /* for absolute button */
-  padding: 2rem 1.5rem 3rem; /* extra bottom padding for button spacing */
+  position: relative; 
+  padding: 2rem 1.5rem 3rem; 
 }
 
 .pe-card p {

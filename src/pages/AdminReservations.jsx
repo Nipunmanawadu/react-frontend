@@ -65,7 +65,7 @@ function AdminReservations() {
     }
   };
 
-  // --- COMPACT & PROFESSIONAL STYLES ---
+  
   const pageContainer = {
     backgroundColor: "#f8fafc",
     minHeight: "100vh",
@@ -147,7 +147,7 @@ function AdminReservations() {
     );
   };
 
-  // Helper: Action Buttons
+ 
   const btn = (type) => {
     const isEdit = type === "edit";
     const isSave = type === "save";

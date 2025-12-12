@@ -1,4 +1,3 @@
-// src/components/VehicleView.jsx
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { vehicleApi } from "../api/vehicleApi";
@@ -13,7 +12,7 @@ function VehicleView() {
   const [searchModel, setSearchModel] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-    const navigate = useNavigate(); 
+  const navigate = useNavigate(); 
 
 
   const fetchVehicles = async (model = "") => {
