@@ -11,6 +11,7 @@ export default function Dashboard() {
   const [customers, setCustomers] = useState([]);
   const [searchId, setSearchId] = useState("");
   const [searchName, setSearchName] = useState("");
+  const [searchEmail, setSearchEmail] = useState(""); // ✅ Added
   const [deleteId, setDeleteId] = useState(null);
   const [popupMessage, setPopupMessage] = useState(null);
   const navigate = useNavigate();
@@ -72,6 +73,18 @@ export default function Dashboard() {
     }
   };
 
+  // ✅ Search by email
+  const searchCustomerByEmail = async () => {
+    if (!searchEmail.trim()) return loadCustomers();
+    try {
+      const res = await customerApi.get(`/by-email?email=${searchEmail}`);
+      setCustomers([res.data]);
+    } catch {
+      alert("Customer not found");
+      setCustomers([]);
+    }
+  };
+
   return (
     <>
       <Navbar1 />
@@ -80,6 +93,7 @@ export default function Dashboard() {
         <div className="dashboard-card">
           <h2>Customer Dashboard</h2>
 
+          {/* Search by ID */}
           <div className="search-group">
             <input
               type="number"
@@ -101,6 +115,7 @@ export default function Dashboard() {
             </button>
           </div>
 
+          {/* Search by Name */}
           <div className="search-group">
             <input
               type="text"
@@ -115,6 +130,28 @@ export default function Dashboard() {
               className="btn-reset"
               onClick={() => {
                 setSearchName("");
+                loadCustomers();
+              }}
+            >
+              Reset
+            </button>
+          </div>
+
+          {/* ✅ Search by Email */}
+          <div className="search-group">
+            <input
+              type="email"
+              placeholder="Search by Email"
+              value={searchEmail}
+              onChange={(e) => setSearchEmail(e.target.value)}
+            />
+            <button className="btn-search" onClick={searchCustomerByEmail}>
+              Search Email
+            </button>
+            <button
+              className="btn-reset"
+              onClick={() => {
+                setSearchEmail("");
                 loadCustomers();
               }}
             >
