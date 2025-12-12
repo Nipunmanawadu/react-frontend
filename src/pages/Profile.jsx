@@ -37,6 +37,14 @@ export default function Profile() {
         <div className="pe-container">
           <h2 className="pe-title">My Profile</h2>
           <div className="pe-card">
+            {/* My Bookings button at top-right */}
+            <button
+              className="pe-btn-bookings"
+              onClick={() => navigate(`/my-reservation/`)}
+            >
+              My Bookings
+            </button>
+
             <p><strong>Name:</strong> {user.name}</p>
             <p><strong>Email:</strong> {user.email}</p>
             <p><strong>Phone:</strong> {user.phone}</p>
